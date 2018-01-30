@@ -46,5 +46,7 @@ namespace ClassLibrary1
         public DateTime End_Date { get; set; }
         public string PortalUsercreatedby { get; set; }
         public string DocumenttypSave { get; set; }
+        public string ProcessedBy { get; set; }
+        public string ProcessedByName { get; set; }
     }
 }

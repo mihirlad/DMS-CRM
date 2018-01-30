@@ -41,6 +41,12 @@
             border-color: #66cf54;
         }
 
+         .btnnotes-Process
+        {
+            color: #000;
+            background-color: #00ffff;
+            border-color: #66cf54;
+        }
         .highlight
         {
             background-color: yellow;
@@ -79,6 +85,21 @@
         span.Pending
         {
             background: #8ba8c1;
+            border-radius: 0.8em;
+            -moz-border-radius: 0.8em;
+            -webkit-border-radius: 1.8em;
+            color: #ffffff;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3.6em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3.6em;
+        }
+
+        span.Process
+        {
+            background: #00ffff;
             border-radius: 0.8em;
             -moz-border-radius: 0.8em;
             -webkit-border-radius: 1.8em;
@@ -154,6 +175,7 @@
         listStatus.Add(new SelectListItem { Text = "Approved", Value = "125970000", Selected = false });
         listStatus.Add(new SelectListItem { Text = "Reject", Value = "125970001", Selected = false });
         listStatus.Add(new SelectListItem { Text = "Pending", Value = "125970002", Selected = false });
+        listStatus.Add(new SelectListItem { Text = "Pending", Value = "125970003", Selected = false });
 
         //List<SelectListItem> listFilter = new List<SelectListItem>();
         //listStatus.Add(new SelectListItem { Text = "All", Value = "0", Selected = true });
@@ -168,22 +190,28 @@
 
 
                 <div class="col-sm-12 text-center">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <span class="Pending">@Model.DashData[0].Pending</span>
+                        <label for="email">
+                            Pending
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
                         <span class="Approved">@Model.DashData[0].Approved</span>
                         <label for="email">
                             Approved
                         </label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <span class="Reject">@Model.DashData[0].Reject</span>
                         <label for="email">
                             Reject
                         </label>
                     </div>
-                    <div class="col-sm-4">
-                        <span class="Pending">@Model.DashData[0].Pending</span>
+                    <div class="col-sm-3">
+                        @*<span class="Process">@Model.DashData[0].Processed</span>*@
                         <label for="email">
-                            Pending
+                            Processed
                         </label>
                     </div>
                 </div>
@@ -483,6 +511,16 @@
 
                                             </div>
                                         </div>
+                                        <div style="@if (@Model.SharedOwnerUser == "125970002" || @Model.SharedOwnerUser == "125970001")
+                                                    { @("font-size: 12px; padding: 0px 5px;display: block;text-align: right");
+                                                    }
+                                                    else
+                                                    {
+                                                        @("font-size: 12px; padding: 0px 5px;display: none;text-align: right");
+                                                    }">
+                                            <button type="button" class="btnnotes btnnotes-Process" id="BtnProcess" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 2, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Process</button>
+
+                                        </div>
                                         <div style="font-size: 11px; padding: 0px 5px; text-align: left">
                                             <b>Created On :</b>
 
@@ -507,12 +545,17 @@
                                                     //Reject
                                                          @("text-align: justify;background-color:#db6b6b;width:10px;")
                                                 }
-                                                else
+                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
                                                 {
                                                     //Pending
                                                          @("text-align: justify;background-color:#8ba8c1;width:10px;")
+                                                }
+                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
+                                                {
+                                                    //Processed
+                                                         @("text-align: justify;background-color:#00ffff;width:10px;")
                                                 }"></td>
-                                    
+
                                 </tr>
                 
                                 }

@@ -36,3 +36,9 @@ C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\obj\Debug\Class
 C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
 C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll
 C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

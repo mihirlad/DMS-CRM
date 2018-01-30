@@ -433,6 +433,7 @@ namespace ActivityTest.Controllers
                 DashData.Approved = CounterData.Approved;
                 DashData.Reject = CounterData.Reject;
                 DashData.Pending = CounterData.Pending;
+                DashData.Processed = CounterData.Processed;
                 lstNew.Add(DashData);
                 return lstNew;
             }
@@ -901,22 +902,33 @@ namespace ActivityTest.Controllers
                     if (ColsShared.Entities.Count > 0)
                     {
                         Entity EntityShared = new Entity("mhl_portalnoteshared");
+                       
+                        EntityShared["mhl_portalnotesharedid"] = new Guid(ColsShared.Entities[0].Attributes["mhl_portalnotesharedid"].ToString());
+                        Guid contactid = new Guid(BL.CurrentUser.Instance.VerifiedUser.UserId.ToString());
+                        EntityReference ContactId = new EntityReference("new_portaluser", contactid);
 
                         if (Flag == "1")
                         {
                             OptionSetValue Approved = new OptionSetValue(125970000);
                             EntityShared["mhl_approvalstatus"] = Approved;
+                            EntityShared["mhl_approvedby"] = ContactId;
                         }
-                        else
+                        else if (Flag == "0")
                         {
-                            OptionSetValue Approved = new OptionSetValue(125970001);
-                            EntityShared["mhl_approvalstatus"] = Approved;
+                            OptionSetValue Reject = new OptionSetValue(125970001);
+                            EntityShared["mhl_approvalstatus"] = Reject;
+                            EntityShared["mhl_approvedby"] = ContactId;
+                        }
+                        else if (Flag == "2")
+                        {
+                            OptionSetValue Process = new OptionSetValue(125970003);
+                            EntityShared["mhl_approvalstatus"] = Process;
+                            EntityShared["mhl_processedby"] = ContactId;
+
                         }
 
-                        EntityShared["mhl_portalnotesharedid"] = new Guid(ColsShared.Entities[0].Attributes["mhl_portalnotesharedid"].ToString());
-                        Guid contactid = new Guid(BL.CurrentUser.Instance.VerifiedUser.UserId.ToString());
-                        EntityReference ContactId = new EntityReference("new_portaluser", contactid);
-                        EntityShared["mhl_approvedby"] = ContactId;
+                       
+                       
                         Service.Update(EntityShared);
                     }
                     ViewBag.GetTimeZone = new Func<DateTime, string>(LocalTime);

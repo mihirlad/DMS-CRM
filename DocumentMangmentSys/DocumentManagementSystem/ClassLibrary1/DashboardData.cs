@@ -12,5 +12,6 @@ namespace ClassLibrary1
         public string Approved { get; set; }
         public string Reject { get; set; }
         public string Pending { get; set; }
+        public string Processed { get; set; }
     }
 }

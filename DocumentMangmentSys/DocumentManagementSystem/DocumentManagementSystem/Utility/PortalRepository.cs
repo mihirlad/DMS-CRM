@@ -763,6 +763,7 @@ namespace ActivityTest.Utility
             DashData.Approved = lst.Where(x => x.ApprovalStatus == "125970000").Count().ToString();
             DashData.Reject = lst.Where(x => x.ApprovalStatus == "125970001").Count().ToString();
             DashData.Pending = lst.Where(x => x.ApprovalStatus == "125970002").Count().ToString();
+            DashData.Processed = lst.Where(x => x.ApprovalStatus == "125970003").Count().ToString();
             //125970000
             //125970001
             //    125970002
