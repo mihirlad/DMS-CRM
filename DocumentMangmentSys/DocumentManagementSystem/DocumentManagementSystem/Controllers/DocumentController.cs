@@ -458,6 +458,7 @@ namespace ActivityTest.Controllers
                     BL.NotesData Model = new BL.NotesData() { lstPortalUser = null, lstAssignedPortalUser = null, lstDataRow = null, lstHeaderColumn = null, lstDocumentType = null };
                     Guid DocumentId = new Guid();
 
+                    #region TempData
                     if (TempData["ApprovalStatus"] != null)
                     {
                         Model.ApprovalStatus = TempData["ApprovalStatus"].ToString();
@@ -560,7 +561,8 @@ namespace ActivityTest.Controllers
                     TempData["PortalUser"] = null;
                     TempData["SearchKeyword"] = null;
                     TempData["Start_Date"] = null;
-                    TempData["End_Date"] = null;
+                    TempData["End_Date"] = null; 
+                    #endregion
 
                     //BL.CurrentUser.Instance.VerifiedUser.Documenttyp = Mod.Documenttyp;
 
