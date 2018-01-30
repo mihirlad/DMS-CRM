@@ -1,0 +1,180 @@
+﻿@model ClassLibrary1.NotesData
+@{
+    ViewBag.Title = "DocumentShared";
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocumentShared</title>
+
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Document Notes</h2>
+    <div style="clear: both; height: 20px"></div>
+    @using (Html.BeginForm("SaveShared", "Document", FormMethod.Post))
+    {
+        <form>
+            @Html.HiddenFor(m => m.annotationid)
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="container" style="border: 2px solid #cecece;">
+                        <div style="clear: both; height: 20px"></div>
+                        <div class="col-sm-12 text-center">
+                            <div class="col-sm-3">
+                                @Html.DropDownListFor(m => m.PortalUser, Model.lstPortalUser == null ? Enumerable.Empty<SelectListItem>() : Model.lstPortalUser, "---Select User---", new { @class = "form-control", @id = "ddlSubject", @required = "required" })
+
+                            </div>
+                            <div class="col-sm-5">
+                                @Html.CheckBoxFor(m => m.AllowApprove, Model.AllowApprove)
+                                <label for="email">Allow to Approve/Reject</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="submit" class="btn btn-info">Share</button>
+
+                                @Html.ActionLink("Back", "DocumentNotes", "Document", new { @class = "btn btn-info" })
+                            </div>
+                        </div>
+                        <div style="clear: both; height: 20px"></div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+
+                    <div class="col-sm-10 text-center">
+                        <div class="col-sm-12">
+                            <h3>List Of Shared User</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped ">
+                                    <tr>
+                                        <td><b>User Name</b></td>
+                                        <td><b>Allow To Approve/Reject</b></td>
+                                        <td><b>Remove</b></td>
+                                    </tr>
+                                    @* @if (Model.lstAssignedPortalUser != null && Model.lstAssignedPortalUser.Count > 0)
+                                    {
+                                        //foreach (var itemValue in Model.lstNotesData)
+                                        //{
+
+                                        for (var i = 0; i < Model.lstAssignedPortalUser.Count; i++)
+                                        { 
+                                        <tr>
+                                            <td>@Model.lstAssignedPortalUser[i].Text</td>
+                                          
+                                            <td>@Html.ActionLink("Remove", "RemovedShared", new { annotationid = @Model.annotationid, PortalUser = @Model.lstAssignedPortalUser[i].Value })
+
+
+                                        </tr>
+                                        }
+                                    }*@
+
+                                    @if (Model.NotesSharedUser != null && Model.NotesSharedUser.Count > 0)
+                                    {
+                                        //foreach (var itemValue in Model.lstNotesData)
+                                        //{
+
+                                        for (var j = 0; j < Model.NotesSharedUser.Count; j++)
+                                        { 
+                                        <tr>
+
+                                            <td>@Model.NotesSharedUser[j].PortalUserName</td>
+                                            <td>
+                                                @if (@Model.NotesSharedUser[j].mhl_allowtoapprove == true)
+                                                {
+                                                    <i style="color: green;">Yes</i>
+                                                    <div style="clear: both; width: 10px"></div>
+                                                    @Html.ActionLink("Click to Deny", "AllowNotesToUser", new { portalnotesharedid = @Model.NotesSharedUser[j].mhl_portalnotesharedid, annotationid = @Model.annotationid, flag = false })
+                                                }
+                                                else
+                                                {
+                                                    <i style="color: red">No</i>
+                                                    <div style="clear: both; width: 10px"></div>
+                                                    @Html.ActionLink("Click to Allow", "AllowNotesToUser", new { portalnotesharedid = @Model.NotesSharedUser[j].mhl_portalnotesharedid, annotationid = @Model.annotationid, flag = true })
+                                                }
+
+
+                                            </td>
+                                            <td>@Html.ActionLink("Remove", "RemovedShared", new { annotationid = @Model.annotationid, PortalUser = @Model.NotesSharedUser[j].mhl_portaluser })
+
+
+                                        </tr>
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div style="clear: both; height: 20px"></div>
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped ">
+                                @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
+                                {
+                                    //foreach (var itemValue in Model.lstNotesData)
+                                    //{
+
+                                    for (var i = 0; i < Model.lstNotesData.Count; i++)
+                                    { 
+                                    
+                                    <tr style="text-align: justify">
+                                        <td>
+                                            <div style="font-size: 20px; padding: 0px 5px; text-align: right;">@Html.Raw("Created By " + @Model.lstNotesData[i].PortalUsercreatedby)</div>
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div style="padding: 0px 15px">
+                                                @Model.lstNotesData[i].notetext.Replace("*Document*", "")
+                                            </div>
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                        {@("display: none;")}
+                                                        else
+                                                        {@("display:block;float: left;padding: 0px 11px; ") }">
+
+                                                @if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                {
+                                                    <div style="text-align: justify; padding: 5px 5px; background-color: #7ee27e; font-weight: 200;">
+
+                                                        @Html.Raw("Approved by " + @Model.lstNotesData[i].ApprovedByName)
+                                                    </div>
+                                                }
+                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
+                                                {
+                                                    <div style="text-align: justify; padding: 5px 5px; background-color: #db6b6b; font-weight: 200;">
+                                                        @Html.Raw("Rejected by " + @Model.lstNotesData[i].ApprovedByName)
+                                                    </div>
+                                                }
+
+                                            </div>
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div style="font-size: 10px; padding: 0px 5px;">
+                                                <b>Created On :</b>
+
+                                                @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                            </div>
+                                            @* @Model.lstNotesData[i].createdon.ToString("dd-MMM-yyyy hh:mm:ss tt")*@
+                                            <div style="@if (@Model.lstNotesData[i].subject == null)
+                                                        { @("font-size: 9px; padding: 0px 5px;display: none;");
+                                                        }
+                                                        else
+                                                        {
+                                                        @("font-size: 9px; padding: 0px 5px;display: block;");
+                                                        }
+                                            ">
+                                            </div>
+                                            @*<a href="~/Document/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>*@
+                                        </td>
+                                    </tr>
+                
+                                    }
+
+                                    //}
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+</body>
+</html>

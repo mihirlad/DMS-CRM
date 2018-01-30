@@ -1,0 +1,5 @@
+E:\Dynamic CRM Demo\API\ActivityTest\PortableActivityTest\bin\Debug\PortableActivityTest.dll
+E:\Dynamic CRM Demo\API\ActivityTest\PortableActivityTest\bin\Debug\PortableActivityTest.pdb
+E:\Dynamic CRM Demo\API\ActivityTest\PortableActivityTest\obj\Debug\PortableActivityTest.csprojResolveAssemblyReference.cache
+E:\Dynamic CRM Demo\API\ActivityTest\PortableActivityTest\obj\Debug\PortableActivityTest.dll
+E:\Dynamic CRM Demo\API\ActivityTest\PortableActivityTest\obj\Debug\PortableActivityTest.pdb

@@ -1,0 +1,90 @@
+﻿@model ClassLibrary1.NotesData
+@{
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TicketsNotes</title>
+
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Ticket Notes</h2>
+
+    @using (Html.BeginForm())
+    {
+        <form>
+            @Html.HiddenFor(m => m.annotationid)
+            @Html.HiddenFor(m => m.IncidentId)
+        </form>
+        <div style="clear: both; height: 20px"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped ">
+                            @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
+                            {
+                                //foreach (var itemValue in Model.lstNotesData)
+                                //{
+
+                                for (var i = 0; i < Model.lstNotesData.Count; i++)
+                                { 
+                                    
+                                <tr style="@if (@Model.lstNotesData[i].subject != null)
+                                           {@((@Model.lstNotesData[i].subject.Contains("escalation") || @Model.lstNotesData[i].subject.Contains("by")) ? "text-align: right" : "text-align: left")}
+                                           else
+                                           {@("text-align: left");
+                                           }">
+
+                                    <td>
+
+
+                                        <div style="font-size: 15px; padding: 0px 5px;">@Model.lstNotesData[i].subject</div>
+                                        <div style="clear: both; height: 5px"></div>
+                                        <div style="padding: 0px 15px">
+                                            @Model.lstNotesData[i].notetext.Replace("*WEB*", "")
+                                        </div>
+                                        <div style="clear: both; height: 5px"></div>
+                                        <div style="font-size: 9px; padding: 0px 5px;">
+                                            <b>Created On :</b>
+
+                                            @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                        </div>
+                                        @* @Model.lstNotesData[i].createdon.ToString("dd-MMM-yyyy hh:mm:ss tt")*@
+                                        <div style="@if (@Model.lstNotesData[i].subject == null)
+                                                    { @("font-size: 9px; padding: 0px 5px;display: none;");
+                                                    }
+                                                    else
+                                                    {
+                                                        @("font-size: 9px; padding: 0px 5px;display: block;");
+                                                    }
+                                            ">
+                                            <b>Created </b>@Model.lstNotesData[i].subject
+                                            @* @Model.lstNotesData[i].createdby*@
+                                        </div>
+                                        <a href="~/TroubleTicketCases/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>
+                                    </td>
+                                </tr>
+                
+                                }
+
+                                //}
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a href="~/TroubleTicketCases/ReopenCase/?Id=@Model.IncidentId" target="_parent">Re-Open Ticket</a>
+            </div>
+        </div> 
+    }
+
+
+</body>
+</html>

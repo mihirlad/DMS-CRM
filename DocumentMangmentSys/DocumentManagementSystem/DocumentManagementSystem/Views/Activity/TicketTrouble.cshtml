@@ -1,0 +1,87 @@
+﻿@model ClassLibrary1.RecordList
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TicketTrouble</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        List<SelectListItem> listFlags = new List<SelectListItem>();
+        listFlags.Add(new SelectListItem { Text = "Active", Value = "0" });
+        listFlags.Add(new SelectListItem { Text = "Resolved", Value = "1" });
+    
+        <div>
+            <div>Case Type</div>
+            <div>
+                @Html.DropDownListFor(model => model.statecode, listFlags, "-- Select --", new { @class = "form-control mb10", onchange = @"form.submit();" })
+            </div>
+        </div>
+    }
+    <table id="myTable" class="table table-striped">
+        <thead>
+            <tr>
+                @if (Model.lstHeaderColumn != null && Model.lstHeaderColumn.Count > 0)
+                {
+                    <th>Action</th>
+                    for (var i = 1; i < Model.lstHeaderColumn.Count; i++)
+                    {
+                    <th>@Model.lstHeaderColumn[i].DisplayName</th>
+
+                    }
+                }
+                else
+                {
+                    <td>Data !</td>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.lstDataRow != null && Model.lstDataRow.Count > 0)
+            {
+                foreach (var itemValue in Model.lstDataRow)
+                {
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-block btn-default btnlink"  id="@itemValue.DataRoValue[0]" onclick="Edit(this);">Edit</button></td>
+                    @for (var i = 1; i < Model.lstHeaderColumn.Count; i++)
+                    {
+                        <td>@itemValue.DataRoValue[i]</td>
+                    }
+                </tr>
+                }
+
+            }
+            else
+            {
+                <tr>
+                    <td>There is no Data !</td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+
+</body>
+</html>
+<script>
+
+
+    function Edit(Context) {
+        window.location.href('/Activity/EditCases/?Id=' + Context.id);
+    }
+
+    function CreateCases(Context) {
+        ('/Activity/CreateCases', 'Edit Record');
+    }
+
+
+</script>
+

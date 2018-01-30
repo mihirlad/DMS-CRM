@@ -1,0 +1,83 @@
+﻿@model ClassLibrary1.TicketData
+@{
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateCases</title>
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Create Ticket</h2>
+    @using (Html.BeginForm("SaveCases", "TroubleTicketCases", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {   
+        @Html.HiddenFor(m => m.incidentid)
+        <form>
+            <div style="clear: both; height: 20px"></div>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Customer Ref.</label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.title, Model.title, new { @class = "form-control", @id = "TxtTitle", @required = "required" })
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Description
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(m => m.description, new { @class = "form-control", @id = "Txtdescription" })
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <label for="email">Subject</label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(m => m.subjectid, Model.lstSubject, "Select---", new { @class = "form-control", @id = "ddlSubject", @required = "required" })
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <label for="email">Site Name</label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(m => m.new_name, Model.lstSite, "Select---", new { @class = "form-control", @id = "ddlSite", @required = "required" })
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-12">
+
+                        <div class="col-sm-4">
+                            <label for="email">Attachment</label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.Attachment, new { @type = "file" })
+                        </div>
+
+                    </div>
+                    <div style="clear: both; height: 20px"></div>
+                    <div class="col-sm-12 text-center">
+                        <button type="submit" class="btn btn-info">Save</button>
+                    </div>
+                </div>
+            </div>
+            @*  @Html.LabelFor(m => m.PageMessage, new { @class = "form-control mb10", @id = "lblMessage" })*@
+        </form>
+    }
+
+</body>
+</html>

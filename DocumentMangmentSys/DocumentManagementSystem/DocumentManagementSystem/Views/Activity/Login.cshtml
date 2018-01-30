@@ -1,0 +1,132 @@
+﻿@model ClassLibrary1.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - Document Management System</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/plugins_1.css">
+    <link rel="stylesheet" href="~/css/main_1.css">
+    <link rel="stylesheet" href="~/css/themes.css">
+    <script kabl="76029" style="display: none !important" src="~/js/ga.js" async="" type="text/javascript"></script>
+    <script src="js/modernizr-2.js"></script>
+    <style type="text/css">
+        #fi #fic
+        {
+            margin-right: 100px !important;
+        }
+
+        #fi #rh
+        {
+            margin-left: -115px !important;
+            width: 95px !important;
+        }
+
+        #fi .rh
+        {
+            display: none !important;
+        }
+
+        body:not(.xE) div[role='main'] .Bu:not(:first-child)
+        {
+            display: none !important;
+        }
+    </style>
+    <style type="text/css">
+        .jqstooltip
+        {
+            width: auto !important;
+            height: auto !important;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            background: #000000;
+            color: white;
+            font-size: 11px;
+            text-align: left;
+            white-space: nowrap;
+            padding: 5px;
+            z-index: 10000;
+        }
+
+        .jqsfield
+        {
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+</head>
+<body style="background: #747474 url('Images/Document.png') repeat right;">
+    <div id="login-container" style="top: 110px;">
+        <div style="text-align: center; margin-bottom: 10px;">
+            <img src="~/Images/NWNS-LOGO.png" alt="">
+        </div>
+        <div class="login-title text-center" style="background: #686363; padding: 12px 10px;">
+            <h1 style="margin: 0px;">
+                <small style="margin: 10px; color: #fff;"><strong>Document Management System - Login</strong></small></h1>
+        </div>
+        <div class="block remove-margin">
+            @using (Html.BeginForm("Login", "Activity", FormMethod.Post))
+            {
+       
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+
+                            @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control input-lg", @placeholder = "Username" })
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both; height: 15px;">
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control input-lg", @placeholder = "Password" })
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both; height: 15px;">
+                </div>@*
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-arrows-v"></i></span>
+                            @Html.DropDownListFor(model => model.Documenttyp, Model.lstDocumentType, new { @class = "form-control", @id = "ddlSubject" })
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both; height: 15px;">
+                </div>*@
+                <div class="form-group form-actions">
+                    <div class="col-xs-12 submit_btn center">
+                        <button type="submit" class="btn btn-sm btn-primary">Sign In</button>
+                    </div>
+                </div>
+                <div style="clear: both; height: 5px;">
+                </div>
+   
+                <!-- /.login-box -->
+            }
+        </div>
+        <div style="text-align: center; background-color: #a69d9d; padding: 3px 0 10px 0; text-decoration-color: white">
+            <i style="color: white">Website Design and Developed By <a href="http://www.NWNS.Org/" target="_blank"
+                style="color: white" title="Website Designing & Software Development">NWNS</a></i>
+        </div>
+        <div style="clear: both; height: 10px;">
+        </div>
+    </div>
+</body>
+</html>

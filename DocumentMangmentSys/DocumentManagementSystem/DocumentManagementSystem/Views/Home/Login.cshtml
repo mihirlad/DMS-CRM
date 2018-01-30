@@ -1,0 +1,61 @@
+﻿@model ClassLibrary1.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - Document Management System</title>
+</head>
+<body>
+     @using (Html.BeginForm("Login", "Activity", FormMethod.Post))
+    {
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="#"><b style="color:#f39c12">4power</b>biz</a>
+            </div>
+            <!-- /.login-logo -->
+
+            <div class="login-box-body">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control", @placeholder = "Username" })
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                @*<input type="checkbox">
+                                Remember Me*@
+           
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+                @*<a href="#">I forgot my password</a><br>*@
+
+            </div>
+
+            <!-- /.login-box-body -->
+        </div>
+
+        <!-- /.login-box -->
+    }
+</body>
+</html>

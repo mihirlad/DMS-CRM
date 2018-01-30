@@ -1,0 +1,287 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic);
+
+a:focus, a:hover
+{
+    text-decoration: none;
+}
+
+body
+{
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #394263;
+    font-size: 13px;
+}
+
+.table tr td div, .table tr td
+{
+    white-space: normal !important;    
+}
+
+.topnav
+{
+    background-color: #686363;
+    overflow: hidden;
+}
+
+    .topnav .logo
+    {
+        float: left;
+    }
+
+    .topnav .Profile
+    {
+        float: right;
+        color: white;
+        font-size: 18px;
+        font-style: italic;
+        padding: 24px 10px;
+    }
+
+    .topnav .logo > a
+    {
+        display: inline-block;
+        padding: 5px 10px;
+        width: 90px;
+    }
+
+    .topnav .logo a img
+    {
+        height: auto;
+        max-width: 100%;
+        width: auto;
+    }
+
+    .topnav ul
+    {
+        float: left;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+        .topnav ul li
+        {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+            .topnav ul li a
+            {
+                text-decoration: none;
+                color: #f2f2f2;
+                text-align: center;
+                font-size: 17px;
+                float: left;
+                display: block;
+                padding: 14px 16px;
+            }
+
+                .topnav ul li a:hover
+                {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+            .topnav ul li.active
+            {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+    .topnav a.icon
+    {
+        display: none;
+    }
+
+.bottomnav
+{
+    background-color: #33A;
+    color: #f2f2f2;
+    overflow: hidden;
+    text-align: center;
+}
+
+    .bottomnav a
+    {
+        /*float: left;*/
+        /*display: inline;*/
+        color: #f2f2f2;
+        /*text-align: center;*/
+        /*padding: 14px 16px;*/
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+        .bottomnav a:hover
+        {
+            /*background-color: #ddd;*/
+            color: #4CAF50;
+        }
+
+.Page-Contain
+{
+    padding: 0px 0px;
+}
+
+@media screen and (max-width: 1024px)
+{
+    .topnav ul li
+    {
+        font-size: 14px;
+        padding: 14px 10px;
+    }
+
+        .topnav ul li.active
+        {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    .topnav .Profile
+    {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 991px)
+{
+    .topnav ul li
+    {
+        padding: 10px 21px;
+    }
+
+        .topnav ul li.active
+        {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    .topnav ul
+    {
+        padding: 5px 0;
+        width: 88%;
+    }
+
+    .topnav .Profile
+    {
+        padding: 0 10px 0 0;
+    }
+}
+
+@media screen and (max-width: 767px)
+{
+    .topnav
+    {
+        position: relative;
+    }
+
+        .topnav ul li
+        {
+            display: none;
+        }
+
+        .topnav a.icon
+        {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            font-size: 40px;
+            color: #fff;
+        }
+
+        .topnav .logo
+        {
+            float: none;
+            text-align: left;
+        }
+
+            .topnav .logo a img
+            {
+                text-align: center;
+                text-decoration: none;
+            }
+
+        .topnav .Profile
+        {
+            color: #fff;
+            font-size: 14px;
+            font-style: italic;
+            padding: 0;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .topnav.responsive
+        {
+            position: relative;
+            overflow: visible;
+        }
+
+            .topnav.responsive a.icon
+            {
+                top: 44px;
+            }
+
+            .topnav.responsive ul
+            {
+                background: #686363 none repeat scroll 0 0;
+                padding: 10px 0 0;
+                position: absolute;
+                top: 78px;
+                width: 100%;
+                z-index: 9999;
+            }
+
+                .topnav.responsive ul li
+                {
+                    display: block;
+                    font-size: 16px;
+                    text-align: right;
+                    width: 100%;
+                }
+
+                    .topnav.responsive ul li.active
+                    {
+                        background-color: #4CAF50;
+                        color: white;
+                    }
+
+                    .topnav.responsive ul li a
+                    {
+                        font-size: 16px;
+                        padding: 10px 20px;
+                        text-align: right;
+                        width: 100%;
+                    }
+
+                        .topnav.responsive ul li a:hover
+                        {
+                            color: black;
+                        }
+
+            .topnav.responsive .Profile
+            {
+                padding-top: 10px;
+            }
+}
+
+@media screen and (max-width: 479px)
+{
+    .topnav a.icon
+    {
+        font-size: 30px;
+        right: 10px;
+    }
+
+    .topnav .Profile
+    {
+        right: 30px;
+    }
+}

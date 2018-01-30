@@ -1,0 +1,38 @@
+E:\Dynamic CRM Demo\API\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+E:\Dynamic CRM Demo\API\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\Dynamic CRM Demo\API\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+E:\Dynamic CRM Demo\API\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\bin\Debug\System.Web.Mvc.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ClassLibrary1\bin\Debug\System.Web.Mvc.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+E:\NWNS\Projects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\shrikant\Desktop\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.pdb

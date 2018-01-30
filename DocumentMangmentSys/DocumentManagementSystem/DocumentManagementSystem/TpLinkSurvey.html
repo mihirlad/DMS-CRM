@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function WriteToFile(passForm) {
+            debugger;
+            var fso = new ActiveXObject("Scripting.FileSystemObject");
+            var s = fso.OpenTextFile("C:\\inetpub\\wwwroot\\DocumentManagementSystem\\DocumentManagementSystem\\TpLinkSurveyText.txt", 8, True, 0);
+
+            var firstName = document.getElementById('FirstName');
+            var lastName = document.getElementById('lastName');
+
+            s.writeline("First Name :" + FirstName);
+            s.writeline("Last Name :" + lastName);
+
+            s.writeline("-----------------------------");
+            s.Close();
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="WriteToFile(this)">
+        <h2 style="text-align: center;"><u>Customer Detail</u></h2>
+        <table style="text-align: center; padding-top: 20px; padding-left: 40%;">
+            <tr>
+                <td>
+                    <label>Type your first name:</label></td>
+                <td>
+                    <input type="text" name="FirstName" id="firstName" size="20" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>
+                        Type your last name:
+                    </label>
+                </td>
+                <td>
+                    <input type="text" name="LastName" id="lastName" size="20" />
+                </td>
+            </tr>
+
+            <tr style="height: 20px;">
+                <td colspan="2">
+                    <input type="submit" value="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+

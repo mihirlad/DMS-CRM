@@ -1,0 +1,166 @@
+﻿@model ClassLibrary1.RecordList
+@{
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TroubleTicket</title>
+    <script src="~/js/ModalPopupWindow.js"></script>
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Ticket List</h2>
+
+    @using (Html.BeginForm())
+    {
+        List<SelectListItem> listFlags = new List<SelectListItem>();
+        listFlags.Add(new SelectListItem { Text = "Active", Value = "0", Selected = true });
+        listFlags.Add(new SelectListItem { Text = "Resolved", Value = "1", Selected = false });
+
+        List<SelectListItem> UserFlags = new List<SelectListItem>();
+        UserFlags.Add(new SelectListItem { Text = "My Tickets", Value = "0", Selected = true });
+        UserFlags.Add(new SelectListItem { Text = "ALL Tickets", Value = "1", Selected = false });
+        <div style="clear: both; height: 20px"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-4" style="display: none;">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                User Type :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(model => model.Usercode, UserFlags, new { @class = "form-control", onchange = @"form.submit();" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Case Type :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(model => model.statecode, listFlags, new { @class = "form-control", onchange = @"form.submit();" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Search :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(model => model.SearchKeyword, new { @class = "form-control", @id = "TxtSearch", onchange = @"form.submit();" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <div style="clear: both; height: 20px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+
+                    <table id="myTable" class="table text-center table-bordered table-hover table-striped ">
+                        <thead>
+                            <tr>
+                                @if (Model.lstHeaderColumn != null && Model.lstHeaderColumn.Count > 0)
+                                {
+                                    <th class="text-center">Action</th>
+                                    for (var i = 1; i < Model.lstHeaderColumn.Count; i++)
+                                    {
+                                    <th class="text-center">@Model.lstHeaderColumn[i].DisplayName</th>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <td></td>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.lstDataRow != null && Model.lstDataRow.Count > 0)
+                            {
+                                foreach (var itemValue in Model.lstDataRow)
+                                {
+                                <tr>
+                                    @if (Model.statecode == 0)
+                                    {
+                                        <td>
+                                            <button type="button" class="btn btn-default btnlink"  id="@itemValue.DataRoValue[0]" onclick="Edit(this);">Edit</button>
+                                            <button type="button" class="btn  btn-default btnlink"  id="@itemValue.DataRoValue[0]" onclick="CreateNotes(this);">Notes</button>
+                                            <button type="button" class="btn  btn-default btnlink"  id="@itemValue.DataRoValue[0]" onclick="EscalationNotes(this);">Escalation</button>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <button type="button" class="btn  btn-default btnlink"  id="@itemValue.DataRoValue[0]" onclick="ViewTicketsNotes(this);">View Notes</button>
+                                            <button type="button" class="btn btn-default btnlink"  id="@itemValue.DataRoValue[0]" onclick="Reopen(this);">Re-Open</button>
+                                        </td>
+                                    }
+                                    @for (var i = 1; i < Model.lstHeaderColumn.Count; i++)
+                                    {
+                                        <td>@itemValue.DataRoValue[i]</td>
+                                    }
+                                </tr>
+                                }
+
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>There is no Data !</td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    function Reopen(Context) {
+        window.location.href = '/TroubleTicketCases/ReopenCase/?Id=' + Context.id;
+    }
+
+    function Edit(Context) {
+
+        window.location.href = '/TroubleTicketCases/EditCases/?Id=' + Context.id;
+    }
+
+    function CreateNotes(Context) {
+
+        window.location.href = '/TroubleTicketCases/TicketsNotes/?Id=' + Context.id;
+    }
+
+    function ViewTicketsNotes(Context) {
+
+        window.location.href = '/TroubleTicketCases/ViewTicketsNotes/?Id=' + Context.id;
+    }
+
+
+    var modalWin = new CreateModalPopUpObject();
+    modalWin.SetCloseButtonImagePath("/Images/remove.gif");
+    modalWin.SetLoadingImagePath("/Images/loading.gif")
+    function EscalationNotes(Context) {
+        //var callbackFunctionArray = new Array();
+        //modalWin.ShowURL('/TroubleTicketCases/TicketsEscalationNotes/?Id=' + Context.id, 320, 400, 'Escalation', null, callbackFunctionArray);
+        window.location.href = '/TroubleTicketCases/TicketsEscalationNotes/?Id=' + Context.id;
+    }
+
+
+</script>

@@ -1,0 +1,96 @@
+﻿@model ClassLibrary1.DashboardData
+@{
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    <style>
+        span.Approved
+        {
+            background: #7ee27e;
+            border-radius: 0.8em;
+            -moz-border-radius: 0.8em;
+            -webkit-border-radius: 1.8em;
+            color: #ffffff;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3.6em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3.6em;
+        }
+
+        span.Reject
+        {
+            background: #db6b6b;
+            border-radius: 0.8em;
+            -moz-border-radius: 0.8em;
+            -webkit-border-radius: 1.8em;
+            color: #ffffff;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3.6em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3.6em;
+        }
+
+        span.Pending
+        {
+            background: #8ba8c1;
+            border-radius: 0.8em;
+            -moz-border-radius: 0.8em;
+            -webkit-border-radius: 1.8em;
+            color: #ffffff;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3.6em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3.6em;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Dashboard</h2>
+
+    <div style="clear: both; height: 20px"></div>
+    @* @using (Html.BeginForm("GetAllCasesForIncident", "TroubleTicketCases", FormMethod.Post))
+        {
+<button type="submit">Ticket List</button>
+        }
+        @using (Html.BeginForm("CreateCases", "TroubleTicketCases", FormMethod.Post))
+        {
+<button type="submit">Create Cases</button>
+        }*@
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <span class="Approved">@Model.Approved</span>
+                    <label for="email">
+                        Approved
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <span class="Reject">@Model.Reject</span>
+                    <label for="email">
+                        Reject
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <span class="Pending">@Model.Pending</span>
+                    <label for="email">
+                        Pending
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

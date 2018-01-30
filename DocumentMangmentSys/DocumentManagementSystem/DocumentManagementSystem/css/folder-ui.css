@@ -1,0 +1,84 @@
+﻿.thumbnail_view
+{
+    padding: 0;
+    margin: 0;
+}
+
+.thumbnail_view ul
+{
+    overflow: hidden;
+    padding: 0 0 20px;
+    margin: 0;
+}
+
+.thumbnail_view ul li
+{
+    width: 100px;
+    border: 1px solid #ddd;
+    padding: 26px 0;
+    text-align: center;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style-type: none; /*display: inline-block;*/
+    float: left;
+}
+
+.list_view
+{
+    padding: 0;
+    margin: 0;
+}
+
+.list_view ul
+{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    list-style-image: url('../img/custome-arrow.png'); /*list-style-type:none;*/
+}
+
+.list_view ul li
+{
+    padding: 0;
+    text-align: left;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 25px;
+    padding-left: 35px;
+    float: none;
+    background-image: url('../img/custome-arrow-2.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.tree_view
+{
+    padding: 0;
+    margin: 0;
+}
+
+.tree_view ul
+{
+    overflow: hidden;
+    padding: 0;
+    margin: 0; /*list-style-image:url('../img/custome-arrow.png');*/
+    list-style-type: none;
+}
+
+.tree_view ul li
+{
+    padding: 0;
+    text-align: left;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 25px;
+    padding-left: 35px;
+    float: none; /*background-image:url('../img/custome-arrow-2.png');     background-repeat:no-repeat;     background-position:left center;*/
+}
+
+.tree_view ul ul
+{
+    display: none;
+}

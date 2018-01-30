@@ -1,0 +1,51 @@
+﻿@model ClassLibrary1.RecordList
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllCases</title>
+</head>
+<body>
+    <div>
+        <table id="myTable" class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Ticket No</th>
+
+                    <th>Title</th>
+
+                    <th>Created On</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.lstData != null && Model.lstData.Count > 0)
+                {
+                    foreach (var itemValue in Model.lstData)
+                    {
+                    <tr>
+
+                        <td>@itemValue.ticketnumber</td>
+                        <td>@itemValue.title</td>
+                        <td>@itemValue.createdon</td>
+                    </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>There is no Data !</td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

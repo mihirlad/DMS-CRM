@@ -1,0 +1,193 @@
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\ActivityCustomer.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\ActivityCustomer.pdb
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\Antlr3.Runtime.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\ClassLibrary1.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\EntityFramework.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\Microsoft.Web.Infrastructure.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\Newtonsoft.Json.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Net.Http.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.Helpers.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.Mvc.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.Optimization.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.Razor.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.WebPages.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\WebGrease.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\WebMatrix.Data.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\WebMatrix.WebData.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\ClassLibrary1.pdb
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\EntityFramework.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\Newtonsoft.Json.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Net.Http.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.Helpers.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.Mvc.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.Razor.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.WebPages.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\WebMatrix.Data.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\WebMatrix.WebData.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.csprojResolveAssemblyReference.cache
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.dll
+E:\Dynamic CRM Demo\API\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\ActivityCustomer.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\ActivityCustomer.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\Antlr3.Runtime.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\ClassLibrary1.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\EntityFramework.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\Microsoft.Web.Infrastructure.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\Newtonsoft.Json.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Net.Http.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.Helpers.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.Mvc.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.Optimization.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.Razor.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.WebPages.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\WebGrease.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\WebMatrix.Data.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\WebMatrix.WebData.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\ClassLibrary1.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\EntityFramework.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\Newtonsoft.Json.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Net.Http.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.Helpers.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.Mvc.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.Razor.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.WebPages.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\WebMatrix.Data.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\WebMatrix.WebData.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.dll
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\ActivityCustomer.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\ActivityCustomer.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\Antlr3.Runtime.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\ClassLibrary1.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\EntityFramework.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\Microsoft.Crm.Sdk.Proxy.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\Microsoft.Web.Infrastructure.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\Newtonsoft.Json.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Net.Http.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.Helpers.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.Optimization.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.Razor.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.WebPages.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\WebGrease.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\WebMatrix.Data.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\WebMatrix.WebData.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\EntityFramework.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\Newtonsoft.Json.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Net.Http.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.Helpers.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.Razor.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.WebPages.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\WebMatrix.Data.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\WebMatrix.WebData.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.dll
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ActivityTest\bin\ClassLibrary1.pdb
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\Antlr3.Runtime.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\ClassLibrary1.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\EntityFramework.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\Microsoft.Web.Infrastructure.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\Newtonsoft.Json.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Net.Http.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.Helpers.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.Optimization.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.Razor.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.WebPages.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\WebGrease.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\WebMatrix.Data.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\WebMatrix.WebData.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\ClassLibrary1.pdb
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\EntityFramework.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\Newtonsoft.Json.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Net.Http.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Net.Http.WebRequest.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.Helpers.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.Razor.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.WebPages.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.WebPages.Deployment.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\System.Web.WebPages.Razor.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\WebMatrix.Data.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\WebMatrix.WebData.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.AspNet.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.Core.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OAuth.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\obj\Debug\ActivityCustomer.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DocumentManagementSystem.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\bin\DocumentManagementSystem.pdb
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\obj\Debug\DocumentManagementSystem.dll
+E:\NWNS\Projects\DocumentMangmentSys\ActivityTest\ActivityTest\obj\Debug\DocumentManagementSystem.pdb

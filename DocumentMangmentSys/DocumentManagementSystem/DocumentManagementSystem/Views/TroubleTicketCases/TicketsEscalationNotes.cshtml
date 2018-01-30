@@ -1,0 +1,164 @@
+﻿@model ClassLibrary1.NotesData
+@{
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Customer Portal NWNS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/css/main.css" rel="stylesheet" />*@
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Ticket Escalations</h2>
+
+    <div style="clear: both; height: 20px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+
+                    <table id="myTable" class="table text-center table-bordered table-hover table-striped" style="font-size: larger">
+                        <thead>
+                            <tr>
+                                @if (Model.lstHeaderColumn != null && Model.lstHeaderColumn.Count > 0)
+                                {
+                                    for (var i = 1; i < Model.lstHeaderColumn.Count; i++)
+                                    {
+                                    <th class="text-center">@Model.lstHeaderColumn[i].DisplayName</th>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <td></td>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.lstDataRow != null && Model.lstDataRow.Count > 0)
+                            {
+                                foreach (var itemValue in Model.lstDataRow)
+                                {
+                                <tr>
+                                    @for (var i = 1; i < Model.lstHeaderColumn.Count; i++)
+                                    {
+                                        <td>@itemValue.DataRoValue[i]</td>
+                                    }
+                                </tr>
+                                }
+
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>There is no Data !</td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm("EscalationSaveNotes", "TroubleTicketCases", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form>
+            @Html.HiddenFor(m => m.annotationid)
+            @Html.HiddenFor(m => m.IncidentId)
+
+            <div style="clear: both; height: 20px"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="col-sm-4">
+                                <label for="email">
+                                    Descriptions :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                @Html.TextAreaFor(m => m.notetext, new { @class = "form-control", @id = "Txtnotetext", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="col-sm-4">
+                                <label for="email">Attachment :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(a => a.Attachment, new { @type = "file" })
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-6 text-center">
+                        <button type="submit" class="btn btn-info">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div style="clear: both; height: 20px"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped ">
+                            @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
+                            {
+                                //foreach (var itemValue in Model.lstNotesData)
+                                //{
+
+                                for (var i = 0; i < Model.lstNotesData.Count; i++)
+                                { 
+                                    
+                                <tr style="@if (@Model.lstNotesData[i].subject != null)
+                                           {@((@Model.lstNotesData[i].subject.Contains("escalation")) ? "display: block" : "display:none")}
+                                           else
+                                           {@("display:none");
+                                           }">
+
+                                    <td>
+
+
+                                        <div style="font-size: 15px; padding: 0px 5px;">@Model.lstNotesData[i].subject</div>
+                                        <div style="clear: both; height: 5px"></div>
+                                        <div style="padding: 0px 15px">
+                                            @Model.lstNotesData[i].notetext.Replace("*WEB*", "")
+                                        </div>
+                                        <div style="clear: both; height: 5px"></div>
+                                        <div style="font-size: 9px; padding: 0px 5px;">
+                                            <b>Created On :</b>
+
+                                            @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                        </div>
+                                        @* @Model.lstNotesData[i].createdon.ToString("dd-MMM-yyyy hh:mm:ss tt")*@
+                                        <div style="font-size: 9px; padding: 0px 5px;">
+                                            <b>Created </b>@Model.lstNotesData[i].subject
+                                            @* @Model.lstNotesData[i].createdby*@
+                                        </div>
+                                        <a href="~/TroubleTicketCases/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>
+                                    </td>
+                                </tr>
+                
+                                }
+
+                                //}
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    }
+</body>
+</html>

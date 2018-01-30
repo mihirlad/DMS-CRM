@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Document Management System NWNS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+    <script type="text/javascript">
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+
+    <header>
+        @* <div id="header-inner">*@
+
+        <div class="topnav" id="myTopnav">
+            <div class="logo">
+                <a href="~/Document/DocumentNotes" id="logo">
+                    <img src="~/Images/NWNS-LOGO.png" /></a>
+            </div>
+
+
+            @*<ul style="@if (@Session["Uname"].ToString().Contains("Mihir"))
+                       { @("display:block");
+                       }
+                       else
+                       { @("display:none");
+                       }">
+
+                <li @ViewBag.LiDashboard>@Html.ActionLink("Admin Dashboard", "Dashboard", "Activity")</li>
+                <li @ViewBag.LiGetAllCasesForIncident>@Html.ActionLink("Trouble Ticket", "GetAllCasesForIncident", "TroubleTicketCases")</li>
+                <li @ViewBag.LiCreateCases>@Html.ActionLink("Create Trouble Ticket", "CreateCases", "TroubleTicketCases")</li>
+                <li @ViewBag.LiPassword>@Html.ActionLink("Change Password", "ChangePassword", "Activity")</li>
+                <li>@Html.ActionLink("Logout", "Login", "Activity")</li>
+
+            </ul>*@
+
+            <ul>
+
+                @*<li @ViewBag.LiDashboard>@Html.ActionLink("Dashboard", "Dashboard", "Activity")</li>*@
+                <li @ViewBag.LiGetAllCasesForIncident>@Html.ActionLink("Document", "DocumentNotes", "Document")</li>
+                @*<li @ViewBag.LiCreateCases>@Html.ActionLink("Create Trouble Ticket", "CreateCases", "TroubleTicketCases")</li>*@
+                <li @ViewBag.LiPassword>@Html.ActionLink("Change Password", "ChangePassword", "Activity")</li>
+                <li>@Html.ActionLink("Logout", "Logout", "Activity")</li>
+
+            </ul>
+
+            <a href="javascript:void(0);" class="icon mob-icon" onclick="myFunction()">&#8801;</a>
+            <div class="Profile">
+                Welcome to <b>@Session["Uname"] </b>
+            </div>
+        </div>
+        @*  </div>*@
+    </header>
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section style="min-height: 560px;" id="page-content">
+            @* <div class="row">*@
+            @RenderBody()
+            @* </div>*@
+        </section>
+    </div>
+    <footer>
+        <div class="bottomnav">
+            Website Design & Develop By <a href="http://www.nwns.org" target="_blank">NWNS</a> , Copyright @@ 2017.
+        </div>
+    </footer>
+</body>
+</html>

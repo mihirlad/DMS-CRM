@@ -1,0 +1,15 @@
+E:\Dynamic CRM Demo\API\ActivityTest\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\Dynamic CRM Demo\API\ActivityTest\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\Dynamic CRM Demo\API\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+E:\Dynamic CRM Demo\API\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\Dynamic CRM Demo\API\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\NWNS\Projects\Activity Portal Responsive\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+E:\NWNS\Projects\Activity Portal Responsive NWNS NEW\ActivityTest\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache

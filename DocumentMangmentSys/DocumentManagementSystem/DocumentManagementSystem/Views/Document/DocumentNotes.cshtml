@@ -1,0 +1,543 @@
+﻿@model ClassLibrary1.NotesData
+@{
+    ViewBag.Title = "DocumentNotes";
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocumentNotes</title>
+    <style type="text/css">
+        .btnnotes
+        {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .btnnotes-approved
+        {
+            color: #fff;
+            background-color: #89d17d;
+            border-color: #66cf54;
+        }
+
+        .highlight
+        {
+            background-color: yellow;
+        }
+
+        span.Approved
+        {
+            background: #7ee27e;
+            border-radius: 0.8em;
+            -moz-border-radius: 0.8em;
+            -webkit-border-radius: 1.8em;
+            color: #ffffff;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3.6em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3.6em;
+        }
+
+        span.Reject
+        {
+            background: #db6b6b;
+            border-radius: 0.8em;
+            -moz-border-radius: 0.8em;
+            -webkit-border-radius: 1.8em;
+            color: #ffffff;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3.6em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3.6em;
+        }
+
+        span.Pending
+        {
+            background: #8ba8c1;
+            border-radius: 0.8em;
+            -moz-border-radius: 0.8em;
+            -webkit-border-radius: 1.8em;
+            color: #ffffff;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3.6em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3.6em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            debugger;
+
+            $(".date-picker").datepicker({
+                dateFormat: 'dd-M-yy'
+            });
+
+            var inputText = document.getElementById("inputText");
+            if (inputText != undefined) {
+                if (inputText != null) {
+                    var s = "@Model.SearchKeyword".toLowerCase();
+
+                    for (var j = 0; j < s.split(' ').length; j++) {
+                        var text = s.split(' ')[j].toString();
+
+                        $('.searching').each(function () {
+                            var search_value = text.toLowerCase();
+                            var search_regexp = new RegExp(search_value, "g");
+                            $(this).html($(this).html().toLowerCase().replace(search_regexp, "<span class = 'highlight'>" + search_value + "</span>"));
+                        });
+                    }
+                }
+                else {
+                    var inputText1 = document.getElementById("inputText1");
+                    if (inputText1 != undefined) {
+                        if (inputText1 != null) {
+                            $('.searching').each(function () {
+                                $(this).html($(this).html());
+                            });
+                        }
+                    }
+                }
+            }
+            else {
+                var inputText1 = document.getElementById("inputText1");
+                if (inputText1 != undefined) {
+                    if (inputText1 != null) {
+                        $('.searching').each(function () {
+                            $(this).html($(this).html());
+                        });
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Document Notes</h2>
+    <div style="clear: both; height: 20px"></div>
+    @using (Html.BeginForm())
+    {
+        List<SelectListItem> listStatus = new List<SelectListItem>();
+        listStatus.Add(new SelectListItem { Text = "All", Value = "0", Selected = true });
+        listStatus.Add(new SelectListItem { Text = "Approved", Value = "125970000", Selected = false });
+        listStatus.Add(new SelectListItem { Text = "Reject", Value = "125970001", Selected = false });
+        listStatus.Add(new SelectListItem { Text = "Pending", Value = "125970002", Selected = false });
+
+        //List<SelectListItem> listFilter = new List<SelectListItem>();
+        //listStatus.Add(new SelectListItem { Text = "All", Value = "0", Selected = true });
+        //listStatus.Add(new SelectListItem { Text = "Approved", Value = "125970000", Selected = false });
+        //listStatus.Add(new SelectListItem { Text = "Reject", Value = "125970001", Selected = false });
+        //listStatus.Add(new SelectListItem { Text = "Pending", Value = "125970002", Selected = false });
+      
+       
+        
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-sm-12 text-center">
+                    <div class="col-sm-4">
+                        <span class="Approved">@Model.DashData[0].Approved</span>
+                        <label for="email">
+                            Approved
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="Reject">@Model.DashData[0].Reject</span>
+                        <label for="email">
+                            Reject
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="Pending">@Model.DashData[0].Pending</span>
+                        <label for="email">
+                            Pending
+                        </label>
+                    </div>
+                </div>
+
+
+
+                <div style="clear: both; height: 30px"></div>
+
+                <div class="col-sm-12">
+                    <div class="col-sm-4">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Document Type :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(model => model.Documenttyp, Model.lstDocumentType == null ? Enumerable.Empty<SelectListItem>() : Model.lstDocumentType, "---Select---", new { @class = "form-control", @id = "ddlDocumentType", onchange = @"form.submit();" })
+                        </div>
+                    </div>
+                    <div style="display: none;">
+                        <div class="col-sm-4">
+                            <div class="col-sm-4">
+                                <label for="email">
+                                    From Date :
+                                </label>
+                            </div>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.Start_Date, "{0:d-MMM-yyyy}", new { size = "12", @id = "StartDate", @class = "date-picker", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="col-sm-4">
+                                <label for="email">
+                                    To Date :
+                                </label>
+                            </div>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.End_Date, "{0:d-MMM-yyyy}", new { size = "12", @id = "EndDate", @class = "date-picker", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both; height: 30px"></div>
+                <div class="col-sm-12">
+                    <div class="col-sm-4">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Search Keyword :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(model => model.SearchKeyword, Model.SearchKeyword, new { @class = "form-control", @id = "TxtSearch" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Search By Status :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(model => model.ApprovalStatus, listStatus, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div style="@if (@Model.SharedOwnerUser == "125970001")
+                                { @("display: block;");
+                                }
+                                else
+                                {
+                                                        @("display: none;");
+                                }" class="col-sm-4">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Search By User :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(model => model.PortalUser, Model.lstPortalUser == null ? Enumerable.Empty<SelectListItem>() : Model.lstPortalUser, "---Select---", new { @class = "form-control", @id = "ddlSubject" })
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear: both; height: 30px"></div>
+                <div class="col-sm-12 text-center">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <div style="clear: both; height: 20px"></div>
+
+
+    @using (Html.BeginForm("SaveNotes", "Document", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form>
+            @Html.HiddenFor(m => m.annotationid)
+            @Html.HiddenFor(m => m.IncidentId)
+
+            @Html.HiddenFor(m => m.Documenttyp)
+            @Html.HiddenFor(m => m.ApprovalStatus)
+            @Html.HiddenFor(m => m.SearchKeyword)
+            @Html.HiddenFor(m => m.PortalUser)
+
+
+            <div style="clear: both; height: 20px"></div>
+            <div class="container" style="border: 2px solid #cecece;">
+                <div class="row">
+                    <div class="col-sm-8" style="display: none">
+                        @*<div class="col-sm-6">
+                            <div class="col-sm-4">
+                                <label for="email">
+                                    Title :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.subject, new { @class = "form-control", @id = "Txtsubject", @required = "required" })
+                            </div>
+                        </div>*@
+
+
+                        <div class="col-sm-6">
+                            <div class="col-sm-4">
+                                <label for="email">
+                                    Descriptions :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                @Html.TextAreaFor(m => m.notetext, new { @class = "form-control", @id = "Txtnotetext" })
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-12  text-center">
+                        <div class="col-sm-4">
+                            <label for="email">
+                                Document Type :
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(model => model.DocumenttypSave, Model.lstDocumentType == null ? Enumerable.Empty<SelectListItem>() : Model.lstDocumentType, "---Select---", new { @class = "form-control", @id = "ddlDocumentTypeSave", @required = "required" })
+                        </div>
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+                    <div class="col-sm-12  text-center">
+                        @*<div class="col-sm-6">*@
+                        <div class="col-sm-4">
+                            <label for="email">Document Notes :</label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(m => m.AppendNotesText, new { @class = "form-control", @id = "TxtAppendnotetext" })
+
+                        </div>
+                        @*</div>*@
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+
+
+                    <div class="col-sm-12  text-center">
+                        @*<div class="col-sm-6">*@
+                        <div class="col-sm-4">
+                            <label for="email">Upload File (Pdf,Word and Text File allow) :</label>
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.Attachment, new { @type = "file", @required = "required" })
+
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-info">Save</button>
+                        </div>
+                        @*</div>*@
+                    </div>
+                    <div style="clear: both; height: 10px"></div>
+
+
+                    <div class="col-sm-12 text-center">
+                        <div class="text-danger">
+                            @Model.MessageOnView
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div style="clear: both; height: 20px"></div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <span class="text-success">
+                        <p>
+                            @if (@Model.lstNotesData != null)
+                            {
+                                @Html.Raw(@Model.lstNotesData.Count + " Record found") 
+                            }
+                            else
+                            {
+                                @Html.Raw("No Record found");
+                            }
+
+                        </p>
+                    </span>
+                </div>
+                <div style="clear: both; height: 10px"></div>
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
+                            {
+                                //foreach (var itemValue in Model.lstNotesData)
+                                //{
+
+                                for (var i = 0; i < Model.lstNotesData.Count; i++)
+                                { 
+                                    
+                                <tr>
+
+                                    <td>
+
+                                        <div style="@if (@Model.lstNotesData[i].PortalUsercreatedby.Contains(@Session["Uname"].ToString()) || @Model.SharedOwnerUser == "125970001")
+                                                    { @("font-size: 11px; padding: 0px 5px;display: block;");
+                                                    }
+                                                    else
+                                                    {
+                                                        @("font-size: 11px; padding: 0px 5px;display: none;");
+                                                    }">
+                                            <button type="button" class="btn btn-primary"  id="@Model.lstNotesData[i].annotationid" onclick="SharedDocument(this);">Share To User</button>
+
+                                        </div>
+
+
+                                        <div style="font-size: 20px; padding: 0px 5px; text-align: right;">
+                                            @Html.Raw("Created By " + @Model.lstNotesData[i].PortalUsercreatedby)
+                                        </div>
+                                        <div style="clear: both; height: 10px;"></div>
+
+                                        <div style="text-align: justify; text-overflow: ellipsis; overflow: scroll; height: 300px;">
+                                            @if (@Model.SearchKeyword != null)
+                                            {
+                                                <div id="inputText" class="searching">
+                                                    <p>
+                                                        @Html.Raw(@Model.lstNotesData[i].notetext.Replace("*Document*", ""))
+                                                    </p>
+                                                </div>   
+                                             
+                                            }
+                                            else
+                                            {
+                                                <div id="inputText1" class="searching">
+                                                    <p>
+                                                        @Html.Raw(@Model.lstNotesData[i].notetext.Replace("*Document*", ""))
+                                                    </p>
+                                                </div>
+                                            }
+                                        </div>
+
+                                        <div style="clear: both; height: 10px"></div>
+                                        <div style="@if (@Model.SharedOwnerUser == "125970002" || @Model.SharedOwnerUser == "125970001" || @Model.lstNotesData[i].AllowApprove == true)
+                                                    { @("font-size: 12px; padding: 0px 5px;display: block;text-align: left");
+                                                    }
+                                                    else
+                                                    {
+                                                        @("font-size: 12px; padding: 0px 5px;display: none;text-align: left");
+                                                    }">
+                                            <div style="@if (@Model.lstNotesData[i].ApprovalStatus != "125970000")
+                                                        {@("display: block;float: left;padding: 0px 11px;")}
+                                                        else
+                                                        {@("display: none;") }">
+
+
+                                                <button type="button" class="btnnotes btnnotes-approved" id="BtnApproved" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 1, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Approve</button>
+
+                                                <div style="display: block; float: left; padding: 0px 11px;">
+                                                    <button type="button" class="btn btn-danger" id="BtnReject" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 0, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Reject</button>
+                                                </div>
+                                            </div>
+
+                                            <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                        {@("display: none;")}
+                                                        else
+                                                        {@("display:block;float: left;padding: 0px 11px; ") }">
+
+                                                @if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                {
+                                                    <div style="text-align: justify; padding: 5px 5px; background-color: #7ee27e; font-weight: 200;">
+
+                                                        @Html.Raw("Approved by " + @Model.lstNotesData[i].ApprovedByName)
+                                                    </div>
+                                                }
+                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
+                                                {
+                                                    <div style="text-align: justify; padding: 5px 5px; background-color: #db6b6b; font-weight: 200;">
+                                                        @Html.Raw("Rejected by " + @Model.lstNotesData[i].ApprovedByName)
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+                                        <div style="font-size: 11px; padding: 0px 5px; text-align: left">
+                                            <b>Created On :</b>
+
+                                            @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                        </div>
+                                        @* @Model.lstNotesData[i].createdon.ToString("dd-MMM-yyyy hh:mm:ss tt")*@
+                                        <div style="clear: both; height: 10px"></div>
+                                        <div style="font-size: 10px; padding: 0px 5px; text-align: justify">
+                                            <b>Download File :</b>
+                                            <a href="~/Document/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>
+                                        </div>
+
+                                    </td>
+
+                                    <td  style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                {
+                                                    //Approved
+                                                        @("text-align: justify;background-color:#7ee27e;width:10px;")
+                                                }
+                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
+                                                {
+                                                    //Reject
+                                                         @("text-align: justify;background-color:#db6b6b;width:10px;")
+                                                }
+                                                else
+                                                {
+                                                    //Pending
+                                                         @("text-align: justify;background-color:#8ba8c1;width:10px;")
+                                                }"></td>
+                                    
+                                </tr>
+                
+                                }
+
+                                //}
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    }
+</body>
+</html>
+<script type="text/javascript">
+
+    function SharedDocument(Context) {
+        window.open('/Document/DocumentShared/?Id=' + Context.id, '_blank');
+        // window.location.href = '/Document/DocumentShared/?Id=' + Context.id;
+    }
+
+    function ApprovedDocument(Id, Flag) {
+
+        window.location.href = '/Document/DocumentApproved/?Id=' + Id + "&Flag=" + Flag;
+    }
+
+
+</script>

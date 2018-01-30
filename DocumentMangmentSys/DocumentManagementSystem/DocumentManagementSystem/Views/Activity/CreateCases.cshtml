@@ -1,0 +1,53 @@
+﻿@model ClassLibrary1.TicketData
+@{
+    Layout = null;
+}
+
+<h2>CreateCases</h2>
+
+
+
+
+@using (Html.BeginForm("SaveCases", "Activity", FormMethod.Post))
+{   
+    @Html.HiddenFor(m => m.incidentid)
+
+      
+    <form class="form-horizontal">
+        <table>
+            <tr>
+                <td>Customer Ref.</td>
+                <td>
+                    @Html.TextBoxFor(m => m.title, Model.title, new { @class = "form-control mb10", @id = "TxtTitle", @required = "required" })
+                </td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>
+                    @Html.TextAreaFor(m => m.description, new { @class = "form-control mb10", @id = "Txtdescription" })
+                </td>
+            </tr>
+            <tr>
+                <td>Subject</td>
+                <td>
+                    @Html.DropDownListFor(m => m.subjectid, Model.lstSubject, "Select---", new { @class = "form-control mb10", @id = "ddlSubject", @required = "required" })
+                </td>
+            </tr>
+            <tr>
+                <td>Site Name</td>
+                <td>
+                    @Html.DropDownListFor(m => m.new_name, Model.lstSite, "Select---", new { @class = "form-control mb10", @id = "ddlSite", @required = "required" })
+                </td>
+            </tr>
+        </table>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-info pull-right">Save</button>
+        </div>
+    </form>
+}
+
+
+
+
+
+
