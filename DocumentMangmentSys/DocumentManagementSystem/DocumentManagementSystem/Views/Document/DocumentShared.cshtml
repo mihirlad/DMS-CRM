@@ -94,7 +94,7 @@
 
 
                                             </td>
-                                            <td>@Html.ActionLink("Remove", "RemovedShared", new { annotationid = @Model.annotationid, PortalUser = @Model.NotesSharedUser[j].mhl_portaluser })
+                                            <td>@Html.ActionLink("Remove", "RemovedShared", new { annotationid = @Model.annotationid, PortalUser = @Model.NotesSharedUser[j].mhl_portaluser },new { onclick = "return confirm('Are sure wants to remove?');" })
 
 
                                         </tr>

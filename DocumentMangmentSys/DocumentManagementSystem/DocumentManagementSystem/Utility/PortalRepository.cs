@@ -392,6 +392,25 @@ namespace ActivityTest.Utility
                                     }
                                 }
                             }
+
+                            if (ConfigEntityNew.Attributes.Contains("mhl_processedby"))
+                            {
+                                Data.ProcessedBy = ((EntityReference)(ConfigEntityNew["mhl_processedby"])).Id.ToString();
+
+                                QueryExpression Query = new QueryExpression("new_portaluser");
+                                Query.Criteria.AddCondition(new ConditionExpression("new_portaluserid", ConditionOperator.Equal, Data.ProcessedBy));
+                                Query.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal, 0));
+                                Query.ColumnSet = new ColumnSet(true);
+                                EntityCollection UserPortalCol = _service.RetrieveMultiple(Query);
+                                if (UserPortalCol != null)
+                                {
+                                    if (UserPortalCol.Entities.Count > 0)
+                                    {
+                                        Data.ProcessedByName = UserPortalCol.Entities[0]["new_fullname"].ToString();
+                                    }
+                                }
+                            }
+
                             if (ConfigEntityNew.Attributes.Contains("mhl_approvalstatus"))
                             {
                                 Data.ApprovalStatus = ((OptionSetValue)(ConfigEntityNew["mhl_approvalstatus"])).Value.ToString();
