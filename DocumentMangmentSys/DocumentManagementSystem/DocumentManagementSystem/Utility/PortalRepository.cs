@@ -127,7 +127,7 @@ namespace ActivityTest.Utility
 
             bool AllowApproveFlag = false;
             EntityCollection ColsShared = new EntityCollection();
-            if (UserType != "125970001")
+            if (UserType == "125970000")
             {
                 #region Document For User
                 QueryExpression QueryShared = new QueryExpression("mhl_portalnoteshared");
@@ -423,11 +423,24 @@ namespace ActivityTest.Utility
                     }
                 }
             }
+
+            if (UserType == "125970002")
+            {
+                if (ApprovalStatus == null || ApprovalStatus == "0")
+                {
+                    ApprovalStatus = "125970000,125970003";
+                }
+            }
+
+
             if (ApprovalStatus != null)
             {
                 if (ApprovalStatus != "0")
                 {
-                    return lst.Where(x => x.ApprovalStatus == ApprovalStatus).ToList();
+                    var ids = ApprovalStatus.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => Convert.ToString(x));
+
+                    return lst.Where(x => ids.Any(y => y == x.ApprovalStatus)).ToList();
+                    //return lst.Where(x => x.ApprovalStatus == ApprovalStatus).ToList();
                 }
                 else
                 {
@@ -641,7 +654,7 @@ namespace ActivityTest.Utility
 
 
 
-            if (UserType != "125970001")
+            if (UserType == "125970000")
             {
                 QueryExpression QueryShared = new QueryExpression("mhl_portalnoteshared");
                 QueryShared.ColumnSet = new ColumnSet(true);
@@ -672,8 +685,8 @@ namespace ActivityTest.Utility
                             filter1.Conditions.Add(new ConditionExpression("objectid", ConditionOperator.In, Col.Entities.Select(x => x.Attributes["new_documentmanagementsystemid"]).ToArray()));
 
                     }
-                   // filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrAfter, Convert.ToDateTime(StartDate).ToString("yyyy-MM-dd")));
-                   // filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrBefore, Convert.ToDateTime(EndDate).ToString("yyyy-MM-dd")));
+                    // filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrAfter, Convert.ToDateTime(StartDate).ToString("yyyy-MM-dd")));
+                    // filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrBefore, Convert.ToDateTime(EndDate).ToString("yyyy-MM-dd")));
                     if (PortalUser != null)
                     {
                         filter1.Conditions.Add(new ConditionExpression("subject", ConditionOperator.Like, "%" + PortalUser + "%"));
@@ -721,8 +734,8 @@ namespace ActivityTest.Utility
                         filter1.Conditions.Add(new ConditionExpression("objectid", ConditionOperator.In, Col.Entities.Select(x => x.Attributes["new_documentmanagementsystemid"]).ToArray()));
 
                 }
-               // filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrAfter, Convert.ToDateTime(StartDate).ToString("yyyy-MM-dd")));
-              //  filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrBefore, Convert.ToDateTime(EndDate).ToString("yyyy-MM-dd")));
+                // filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrAfter, Convert.ToDateTime(StartDate).ToString("yyyy-MM-dd")));
+                //  filter1.Conditions.Add(new ConditionExpression("createdon", ConditionOperator.OnOrBefore, Convert.ToDateTime(EndDate).ToString("yyyy-MM-dd")));
                 if (PortalUser != null)
                 {
                     filter1.Conditions.Add(new ConditionExpression("subject", ConditionOperator.Like, "%" + PortalUser + "%"));

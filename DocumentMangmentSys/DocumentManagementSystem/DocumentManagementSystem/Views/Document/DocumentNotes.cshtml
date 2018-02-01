@@ -180,11 +180,16 @@
     {
         List<SelectListItem> listStatus = new List<SelectListItem>();
         listStatus.Add(new SelectListItem { Text = "All", Value = "0", Selected = true });
+        if (@Model.SharedOwnerUser != "125970002")
+        {
+            listStatus.Add(new SelectListItem { Text = "Pending", Value = "125970002", Selected = false });
+        }
         listStatus.Add(new SelectListItem { Text = "Approved", Value = "125970000", Selected = false });
-        listStatus.Add(new SelectListItem { Text = "Reject", Value = "125970001", Selected = false });
-        listStatus.Add(new SelectListItem { Text = "Pending", Value = "125970002", Selected = false });
         listStatus.Add(new SelectListItem { Text = "Processed", Value = "125970003", Selected = false });
-
+        if (@Model.SharedOwnerUser != "125970002")
+        {
+            listStatus.Add(new SelectListItem { Text = "Reject", Value = "125970001", Selected = false });
+        }
         //List<SelectListItem> listFilter = new List<SelectListItem>();
         //listStatus.Add(new SelectListItem { Text = "All", Value = "0", Selected = true });
         //listStatus.Add(new SelectListItem { Text = "Approved", Value = "125970000", Selected = false });
@@ -198,11 +203,26 @@
 
 
                 <div class="col-sm-12 text-center">
-                    <div class="col-sm-3">
-                        <span class="Pending">@Model.DashData[0].Pending</span>
-                        <label for="email">
-                            Pending
-                        </label>
+                    <div style="@if (@Model.SharedOwnerUser == "125970002")
+                                {
+                         @("display: none");
+                                }
+                                else
+                                {
+                         @("display: block");
+                                }">
+                        <div class="col-sm-3">
+                            <span class="Pending">@Model.DashData[0].Pending</span>
+                            <label for="email">
+                                Pending
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <span class="Reject">@Model.DashData[0].Reject</span>
+                            <label for="email">
+                                Reject
+                            </label>
+                        </div>
                     </div>
                     <div class="col-sm-3">
                         <span class="Approved">@Model.DashData[0].Approved</span>
@@ -211,17 +231,12 @@
                         </label>
                     </div>
                     <div class="col-sm-3">
-                        <span class="Reject">@Model.DashData[0].Reject</span>
-                        <label for="email">
-                            Reject
-                        </label>
-                    </div>
-                    <div class="col-sm-3">
                         <span class="Process">@Model.DashData[0].Processed</span>
                         <label for="email">
                             Processed
                         </label>
                     </div>
+
                 </div>
 
 
@@ -290,7 +305,7 @@
                                 }
                                 else
                                 {
-                                                        @("display: none;");
+                        @("display: none;");
                                 }" class="col-sm-4">
                         <div class="col-sm-4">
                             <label for="email">
@@ -327,12 +342,19 @@
             @Html.HiddenFor(m => m.SearchKeyword)
             @Html.HiddenFor(m => m.PortalUser)
 
-
-            <div style="clear: both; height: 20px"></div>
-            <div class="container" style="border: 2px solid #cecece;">
-                <div class="row">
-                    <div class="col-sm-8" style="display: none">
-                        @*<div class="col-sm-6">
+            <div style="@if (@Model.SharedOwnerUser == "125970002")
+                        {
+                         @("display: none");
+                        }
+                        else
+                        {
+                         @("display: block");
+                        }">
+                <div style="clear: both; height: 20px"></div>
+                <div class="container" style="border: 2px solid #cecece;">
+                    <div class="row">
+                        <div class="col-sm-8" style="display: none">
+                            @*<div class="col-sm-6">
                             <div class="col-sm-4">
                                 <label for="email">
                                     Title :</label>
@@ -343,62 +365,63 @@
                         </div>*@
 
 
-                        <div class="col-sm-6">
+                            <div class="col-sm-6">
+                                <div class="col-sm-4">
+                                    <label for="email">
+                                        Descriptions :</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextAreaFor(m => m.notetext, new { @class = "form-control", @id = "Txtnotetext" })
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both; height: 10px"></div>
+                        <div class="col-sm-12  text-center">
                             <div class="col-sm-4">
                                 <label for="email">
-                                    Descriptions :</label>
+                                    Document Type :
+                                </label>
                             </div>
                             <div class="col-sm-8">
-                                @Html.TextAreaFor(m => m.notetext, new { @class = "form-control", @id = "Txtnotetext" })
+                                @Html.DropDownListFor(model => model.DocumenttypSave, Model.lstDocumentType == null ? Enumerable.Empty<SelectListItem>() : Model.lstDocumentType, "---Select---", new { @class = "form-control", @id = "ddlDocumentTypeSave", @required = "required" })
                             </div>
                         </div>
-                    </div>
-                    <div style="clear: both; height: 10px"></div>
-                    <div class="col-sm-12  text-center">
-                        <div class="col-sm-4">
-                            <label for="email">
-                                Document Type :
-                            </label>
-                        </div>
-                        <div class="col-sm-8">
-                            @Html.DropDownListFor(model => model.DocumenttypSave, Model.lstDocumentType == null ? Enumerable.Empty<SelectListItem>() : Model.lstDocumentType, "---Select---", new { @class = "form-control", @id = "ddlDocumentTypeSave", @required = "required" })
-                        </div>
-                    </div>
-                    <div style="clear: both; height: 10px"></div>
-                    <div class="col-sm-12  text-center">
-                        @*<div class="col-sm-6">*@
-                        <div class="col-sm-4">
-                            <label for="email">Document Notes :</label>
-                        </div>
-                        <div class="col-sm-8">
-                            @Html.TextAreaFor(m => m.AppendNotesText, new { @class = "form-control", @id = "TxtAppendnotetext" })
+                        <div style="clear: both; height: 10px"></div>
+                        <div class="col-sm-12  text-center">
+                            @*<div class="col-sm-6">*@
+                            <div class="col-sm-4">
+                                <label for="email">Document Notes :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                @Html.TextAreaFor(m => m.AppendNotesText, new { @class = "form-control", @id = "TxtAppendnotetext" })
 
+                            </div>
+                            @*</div>*@
                         </div>
-                        @*</div>*@
-                    </div>
-                    <div style="clear: both; height: 10px"></div>
+                        <div style="clear: both; height: 10px"></div>
 
 
-                    <div class="col-sm-12  text-center">
-                        @*<div class="col-sm-6">*@
-                        <div class="col-sm-4">
-                            <label for="email">Upload File (Pdf,Word and Text File allow) :</label>
-                        </div>
-                        <div class="col-sm-4">
-                            @Html.TextBoxFor(m => m.Attachment, new { @type = "file", @required = "required" })
+                        <div class="col-sm-12  text-center">
+                            @*<div class="col-sm-6">*@
+                            <div class="col-sm-4">
+                                <label for="email">Upload File (Pdf,Word and Text File allow) :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(m => m.Attachment, new { @type = "file", @required = "required" })
 
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="submit" class="btn btn-info">Save</button>
+                            </div>
+                            @*</div>*@
                         </div>
-                        <div class="col-sm-4">
-                            <button type="submit" class="btn btn-info">Save</button>
-                        </div>
-                        @*</div>*@
-                    </div>
-                    <div style="clear: both; height: 10px"></div>
+                        <div style="clear: both; height: 10px"></div>
 
 
-                    <div class="col-sm-12 text-center">
-                        <div class="text-danger">
-                            @Model.MessageOnView
+                        <div class="col-sm-12 text-center">
+                            <div class="text-danger">
+                                @Model.MessageOnView
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -439,25 +462,27 @@
                                 <tr>
 
                                     <td>
-
-                                        <div style="@if (@Model.lstNotesData[i].PortalUsercreatedby.Contains(@Session["Uname"].ToString()) || @Model.SharedOwnerUser == "125970001")
-                                                    { @("font-size: 11px; padding: 0px 5px;display: block;");
-                                                    }
-                                                    else
-                                                    {
+                                        <div class="col-sm-12">
+                                            <div style="@if (@Model.lstNotesData[i].PortalUsercreatedby.Contains(@Session["Uname"].ToString()) || @Model.SharedOwnerUser == "125970001")
+                                                        { @("font-size: 11px; padding: 0px 5px;display: block;");
+                                                        }
+                                                        else
+                                                        {
                                                         @("font-size: 11px; padding: 0px 5px;display: none;");
-                                                    }">
-                                            <button type="button" class="btn btn-primary"  id="@Model.lstNotesData[i].annotationid" onclick="SharedDocument(this);">Share To User</button>
+                                                        }" class="col-sm-4">
+                                                <button type="button" class="btn btn-primary"  id="@Model.lstNotesData[i].annotationid" onclick="SharedDocument(this);">Share To User</button>
 
-                                        </div>
+                                            </div>
 
 
-                                        <div style="font-size: 20px; padding: 0px 5px; text-align: right;">
-                                            @Html.Raw("Created By " + @Model.lstNotesData[i].PortalUsercreatedby)
+                                            <div class="col-sm-8" style="font-size: 16px; padding: 5px 5px; text-align: right; background-color: #cfdae0; color: black">
+                                                @Html.Raw("Created By " + @Model.lstNotesData[i].PortalUsercreatedby)
+                                            </div>
                                         </div>
                                         <div style="clear: both; height: 10px;"></div>
 
-                                        <div style="text-align: justify; text-overflow: ellipsis; overflow: scroll; height: 300px;">
+
+                                        <div style="text-align: justify; text-overflow: ellipsis; overflow: scroll; height: 300px;" class="col-sm-12">
                                             @if (@Model.SearchKeyword != null)
                                             {
                                                 <div id="inputText" class="searching">
@@ -477,9 +502,10 @@
                                             }
                                         </div>
 
+
                                         <div style="clear: both; height: 10px"></div>
                                         <div class="col-sm-12">
-                                            <div style="@if (@Model.SharedOwnerUser == "125970002" || @Model.SharedOwnerUser == "125970001" || @Model.lstNotesData[i].AllowApprove == true)
+                                            <div style="@if (@Model.SharedOwnerUser == "125970001" || @Model.lstNotesData[i].AllowApprove == true)
                                                         { @("font-size: 12px; padding: 0px 5px;display: block;text-align: left");
                                                         }
                                                         else
