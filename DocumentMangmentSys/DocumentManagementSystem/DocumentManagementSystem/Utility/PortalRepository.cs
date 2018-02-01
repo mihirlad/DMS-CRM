@@ -424,13 +424,15 @@ namespace ActivityTest.Utility
                 }
             }
 
+            #region For SuperUser
             if (UserType == "125970002")
             {
                 if (ApprovalStatus == null || ApprovalStatus == "0")
                 {
                     ApprovalStatus = "125970000,125970003";
                 }
-            }
+            } 
+            #endregion
 
 
             if (ApprovalStatus != null)
