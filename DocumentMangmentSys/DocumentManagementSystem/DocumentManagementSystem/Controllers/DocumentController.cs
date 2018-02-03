@@ -139,6 +139,7 @@ namespace ActivityTest.Controllers
                             EntityShared["mhl_documentnotesid"] = Id.ToString();
                             EntityShared["mhl_portaluser"] = User;
                             EntityShared["mhl_allowtoapprove"] = false;
+                            EntityShared["mhl_documentid"] = IncidentIdNew;
                             Service.Create(EntityShared);
                             //return View("TicketsNotes");
                         }
