@@ -93,10 +93,10 @@ namespace ActivityTest.Controllers
                                     var path = System.IO.Path.Combine(Server.MapPath("~/App_Data/"), fileName);
                                     ModelNotes.Attachment.SaveAs(path);
                                     string notetext = "";
-                                    if (ModelNotes.AppendNotesText != null)
-                                    {
-                                        notetext += "[ " + ModelNotes.AppendNotesText + " ]";
-                                    }
+                                    //if (ModelNotes.AppendNotesText != null)
+                                    //{
+                                    //    notetext += "[ " + ModelNotes.AppendNotesText + " ]";
+                                    //}
                                     if (FExtension.ToLower() == ".pdf")
                                     {
                                         notetext += GetTextFromPDF(path);
@@ -140,6 +140,7 @@ namespace ActivityTest.Controllers
                             EntityShared["mhl_portaluser"] = User;
                             EntityShared["mhl_allowtoapprove"] = false;
                             EntityShared["mhl_documentid"] = IncidentIdNew;
+                            EntityShared["mhl_notesdescription"] = ModelNotes.notesdescription;
                             Service.Create(EntityShared);
                             //return View("TicketsNotes");
                         }
@@ -563,7 +564,7 @@ namespace ActivityTest.Controllers
                     TempData["PortalUser"] = null;
                     TempData["SearchKeyword"] = null;
                     TempData["Start_Date"] = null;
-                    TempData["End_Date"] = null; 
+                    TempData["End_Date"] = null;
                     #endregion
 
                     //BL.CurrentUser.Instance.VerifiedUser.Documenttyp = Mod.Documenttyp;
@@ -903,7 +904,7 @@ namespace ActivityTest.Controllers
                     if (ColsShared.Entities.Count > 0)
                     {
                         Entity EntityShared = new Entity("mhl_portalnoteshared");
-                       
+
                         EntityShared["mhl_portalnotesharedid"] = new Guid(ColsShared.Entities[0].Attributes["mhl_portalnotesharedid"].ToString());
                         Guid contactid = new Guid(BL.CurrentUser.Instance.VerifiedUser.UserId.ToString());
                         EntityReference ContactId = new EntityReference("new_portaluser", contactid);
@@ -928,8 +929,8 @@ namespace ActivityTest.Controllers
 
                         }
 
-                       
-                       
+
+
                         Service.Update(EntityShared);
                     }
                     ViewBag.GetTimeZone = new Func<DateTime, string>(LocalTime);
@@ -978,6 +979,114 @@ namespace ActivityTest.Controllers
                 {
                     return RedirectToAction("../Activity/Login");
                 }
+            }
+            catch (Exception)
+            {
+                return Redirect("~/theme/ErrorPage.html");
+            }
+        }
+
+        public ActionResult DocumentProccessed(Guid Id)//, string SearchKeyword, string Documenttyp, string PortalUser, string ApprovalStatus, DateTime Start_Date, DateTime End_Date)
+        {
+            try
+            {
+                if (BL.CurrentUser.Instance != null && BL.CurrentUser.Instance.VerifiedUser.UserId != Guid.Empty)
+                {
+                    //TempData["SearchKeyword"] = SearchKeyword;
+                    //TempData["Documenttyp"] = Documenttyp;
+                    //TempData["PortalUser"] = PortalUser;
+                    //TempData["ApprovalStatus"] = ApprovalStatus;
+                    //TempData["Start_Date"] = Start_Date;
+                    //TempData["End_Date"] = End_Date;
+
+                    BL.NotesData Data = new BL.NotesData();
+                    //Data.SearchKeyword = SearchKeyword;
+                    //Data.Documenttyp = Documenttyp;
+                    //Data.PortalUser = PortalUser;
+                    //Data.ApprovalStatus = ApprovalStatus;
+                    //Data.Start_Date = Start_Date;
+                    //Data.End_Date=End_Date;
+                    //Data.lstPortalUser = GetPortalUser(Id);
+                    //Data.lstAssignedPortalUser = GetSharedPortalUser(Id);
+                    //Data.NotesSharedUser = GetSharedPortalNotesUser(Id);
+                    Data.annotationid = Id;
+                    lstTroubleTicketNotes = PortalRepository.GetAnnotationIdWiseNotesData("annotation", Service, Id);
+
+                    if (lstTroubleTicketNotes.Count > 0 && lstTroubleTicketNotes != null)
+                    {
+                        Data.lstNotesData = lstTroubleTicketNotes;
+                    }
+                    ViewBag.GetTimeZone = new Func<DateTime, string>(LocalTime);
+                    ViewBag.LiDashboard = "class=";
+                    ViewBag.LiGetAllCasesForIncident = "class=active";
+                    ViewBag.LiCreateCases = "class=";
+                    ViewBag.LiPassword = "class=";
+                    return View(Data);
+                }
+                else
+                {
+                    return RedirectToAction("../Activity/Login");
+                }
+            }
+            catch (Exception)
+            {
+                return Redirect("~/theme/ErrorPage.html");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SaveProccessed(BL.NotesData ModelNotes)
+        {
+            try
+            {
+                if (Service == null)
+                    Service = BL.OrganizationUtility.GetCRMService();
+
+                if (BL.CurrentUser.Instance != null && BL.CurrentUser.Instance.VerifiedUser.UserId != Guid.Empty)
+                {
+                    QueryExpression QueryShared = new QueryExpression("mhl_portalnoteshared");
+                    QueryShared.ColumnSet = new ColumnSet(true);
+                    QueryShared.Criteria.AddCondition(new ConditionExpression("mhl_documentnotesid", ConditionOperator.Equal, ModelNotes.annotationid.ToString().Replace("{", "").Replace("}", "")));
+                    QueryShared.Criteria.AddCondition(new ConditionExpression("mhl_name", ConditionOperator.NotNull));
+                    EntityCollection ColsShared = Service.RetrieveMultiple(QueryShared);
+
+
+                    //var SharedUser = ColsShared.Entities.Select();
+                    if (ColsShared.Entities.Count > 0)
+                    {
+                        Entity EntityShared = new Entity("mhl_portalnoteshared");
+
+                        EntityShared["mhl_portalnotesharedid"] = new Guid(ColsShared.Entities[0].Attributes["mhl_portalnotesharedid"].ToString());
+                        Guid contactid = new Guid(BL.CurrentUser.Instance.VerifiedUser.UserId.ToString());
+                        EntityReference ContactId = new EntityReference("new_portaluser", contactid);
+
+
+                        OptionSetValue Process = new OptionSetValue(125970003);
+                        EntityShared["mhl_approvalstatus"] = Process;
+                        EntityShared["mhl_processedby"] = ContactId;
+                        EntityShared["mhl_processreferenceno"]=ModelNotes.processreferenceno;
+                        EntityShared["mhl_processeddescription"] = ModelNotes.processeddescription;
+
+
+
+                        Service.Update(EntityShared);
+                    }
+                    //return View("TicketsNotes");
+                }
+                else
+                {
+                    return RedirectToAction("../Activity/Login");
+                }
+
+
+
+                ViewBag.LiDashboard = "class=";
+                ViewBag.LiGetAllCasesForIncident = "class=active";
+                ViewBag.LiCreateCases = "class=";
+                ViewBag.LiPassword = "class=";
+                //return Redirect("TicketsNotes?Id=" + ModelNotes.IncidentId);
+                //return Redirect("DocumentNotes");// return Redirect("DocumentNotes");
+                return Redirect("DocumentShared?Id=" + ModelNotes.annotationid.ToString());
             }
             catch (Exception)
             {

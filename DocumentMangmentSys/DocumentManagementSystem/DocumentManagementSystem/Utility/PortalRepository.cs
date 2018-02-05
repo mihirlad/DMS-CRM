@@ -272,7 +272,7 @@ namespace ActivityTest.Utility
                         {
                             Data.notetext = string.Empty;
                         }
-
+                       
                         Data.IncidentId = (Guid)((EntityReference)ConfigEntity.Attributes["objectid"]).Id;
 
                         Data.annotationid = (Guid)(ConfigEntity.Attributes["annotationid"]);
@@ -355,6 +355,11 @@ namespace ActivityTest.Utility
                         {
                             Entity ConfigEntityNew = new Entity();
                             ConfigEntityNew = ColsSharedApprove.Entities[0];
+
+                            if (ConfigEntityNew.Attributes.Contains("mhl_notesdescription"))
+                            {
+                                Data.notesdescription = ConfigEntityNew.Attributes["mhl_notesdescription"].ToString();
+                            }
 
                             if (ConfigEntityNew.Attributes.Contains("mhl_name"))
                             {

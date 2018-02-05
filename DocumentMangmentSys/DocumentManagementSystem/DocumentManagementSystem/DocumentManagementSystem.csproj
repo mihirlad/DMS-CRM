@@ -425,6 +425,7 @@
     <Content Include="Views\Document\DocumentNotes.cshtml" />
     <Content Include="Views\Document\PartialViewShared.cshtml" />
     <Content Include="Views\Document\DocumentShared.cshtml" />
+    <Content Include="Views\Document\DocumentProccessed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Download\" />

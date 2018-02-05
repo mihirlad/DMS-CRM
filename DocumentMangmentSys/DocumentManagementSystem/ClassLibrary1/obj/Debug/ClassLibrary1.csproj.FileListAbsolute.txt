@@ -42,3 +42,9 @@ C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\
 C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
 C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 C:\Users\Sai\Desktop\Repos\DMS-CRM\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\GitHubProjects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+E:\NWNS\Projects\GitHubProjects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\GitHubProjects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\NWNS\Projects\GitHubProjects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+E:\NWNS\Projects\GitHubProjects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\NWNS\Projects\GitHubProjects\DocumentMangmentSys\DocumentManagementSystem\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

@@ -393,7 +393,7 @@
                                 <label for="email">Document Notes :</label>
                             </div>
                             <div class="col-sm-8">
-                                @Html.TextAreaFor(m => m.AppendNotesText, new { @class = "form-control", @id = "TxtAppendnotetext" })
+                                @Html.TextAreaFor(m => m.notesdescription, new { @class = "form-control", @id = "TxtAppendnotetext" })
 
                             </div>
                             @*</div>*@
@@ -450,105 +450,246 @@
                 <div style="clear: both; height: 10px"></div>
                 <div class="col-xs-12">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped">
-                            @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
-                            {
-                                //foreach (var itemValue in Model.lstNotesData)
-                                //{
+                        @if (@Model.SharedOwnerUser == "125970001")
+                        { 
+                            <table class="table table-bordered table-hover table-striped">
+                                @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
+                                {
+                                    //foreach (var itemValue in Model.lstNotesData)
+                                    //{
 
-                                for (var i = 0; i < Model.lstNotesData.Count; i++)
-                                { 
+                                    for (var i = 0; i < Model.lstNotesData.Count; i++)
+                                    { 
                                     
-                                <tr>
+                                    <tr>
 
-                                    <td>
-                                        <div class="col-sm-12">
-                                            <div style="@if (@Model.lstNotesData[i].PortalUsercreatedby.Contains(@Session["Uname"].ToString()) || @Model.SharedOwnerUser == "125970001")
-                                                        { @("font-size: 11px; padding: 0px 5px;display: block;");
-                                                        }
-                                                        else
-                                                        {
-                                                        @("font-size: 11px; padding: 0px 5px;display: none;");
-                                                        }" class="col-sm-4">
-                                                <button type="button" class="btn btn-primary"  id="@Model.lstNotesData[i].annotationid" onclick="SharedDocument(this);">Share To User</button>
-
-                                            </div>
-
-
-                                            <div class="col-sm-8" style="font-size: 16px; padding: 5px 5px; text-align: right; background-color: #cfdae0; color: black">
-                                                @Html.Raw("Created By " + @Model.lstNotesData[i].PortalUsercreatedby)
-                                            </div>
-                                        </div>
-                                        <div style="clear: both; height: 10px;"></div>
-
-
-                                        <div style="text-align: justify; text-overflow: ellipsis; overflow: scroll; height: 300px;" class="col-sm-12">
-                                            @if (@Model.SearchKeyword != null)
-                                            {
-                                                <div id="inputText" class="searching">
-                                                    <p>
-                                                        @Html.Raw(@Model.lstNotesData[i].notetext.Replace("*Document*", ""))
-                                                    </p>
-                                                </div>   
-                                             
-                                            }
-                                            else
-                                            {
-                                                <div id="inputText1" class="searching">
-                                                    <p>
-                                                        @Html.Raw(@Model.lstNotesData[i].notetext.Replace("*Document*", ""))
-                                                    </p>
-                                                </div>
-                                            }
-                                        </div>
-
-
-                                        <div style="clear: both; height: 10px"></div>
-                                        <div class="col-sm-12">
-                                            <div style="@if (@Model.SharedOwnerUser == "125970001" || @Model.lstNotesData[i].AllowApprove == true)
-                                                        { @("font-size: 12px; padding: 0px 5px;display: block;text-align: left");
-                                                        }
-                                                        else
-                                                        {
-                                                        @("font-size: 12px; padding: 0px 5px;display: none;text-align: left");
-                                                        }">
-                                                <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
-                                                            {@("display: block;float: left;padding: 0px 11px;")}
+                                        <td>
+                                            <div class="col-sm-12">
+                                                <div style="@if (@Model.lstNotesData[i].PortalUsercreatedby.Contains(@Session["Uname"].ToString()) || @Model.SharedOwnerUser == "125970001")
+                                                            { 
+                                                            @("font-size: 11px; padding: 0px 5px;display: block;");
+                                                            }
                                                             else
-                                                            {@("display: none;") }">
+                                                            {
+                                                            @("font-size: 11px; padding: 0px 5px;display: none;");
+                                                            }" class="col-sm-4">
+                                                    <button type="button" class="btn btn-primary"  id="@Model.lstNotesData[i].annotationid" onclick="SharedDocument(this);">Share To User</button>
+
+                                                </div>
 
 
-                                                    <button type="button" class="btnnotes btnnotes-approved" id="BtnApproved" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 1, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Approve</button>
+                                                <div class="col-sm-8" style="font-size: 16px; padding: 5px 5px; text-align: right; background-color: #cfdae0; color: black">
+                                                    @Html.Raw("Created By " + @Model.lstNotesData[i].PortalUsercreatedby)
+                                                </div>
+                                            </div>
+                                            <div style="clear: both; height: 10px;"></div>
 
-                                                    <div style="display: block; float: left; padding: 0px 11px;">
-                                                        <button type="button" class="btn btn-danger" id="BtnReject" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 0, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Reject</button>
+
+                                            <div style="@if (@Model.SharedOwnerUser == "125970001")
+                                                        { @("text-align: justify; text-overflow: ellipsis; overflow: scroll; height: 300px;display: block;");
+                                                        }
+                                                        else
+                                                        {
+                                                        @("text-align: justify; text-overflow: ellipsis; overflow: scroll; height: 300px;display: none;");
+                                                        }" class="col-sm-12">
+                                                @if (@Model.SearchKeyword != null)
+                                                {
+                                                    <div id="inputText" class="searching">
+                                                        <b>@Model.lstNotesData[i].notesdescription</b>
+                                                        <p>
+                                                            @Html.Raw(@Model.lstNotesData[i].notetext.Replace("*Document*", ""))
+                                                        </p>
+                                                    </div>   
+                                             
+                                                }
+                                                else
+                                                {
+                                                    <div id="inputText1" class="searching">
+                                                        <b>@Model.lstNotesData[i].notesdescription</b>
+                                                        <p>
+                                                            @Html.Raw(@Model.lstNotesData[i].notetext.Replace("*Document*", ""))
+                                                        </p>
+                                                    </div>
+                                                }
+                                            </div>
+
+
+                                            <div style="clear: both; height: 10px"></div>
+                                            <div class="col-sm-12">
+                                                <div style="@if (@Model.SharedOwnerUser == "125970001" || @Model.lstNotesData[i].AllowApprove == true)
+                                                            { @("font-size: 12px; padding: 0px 5px;display: block;text-align: left");
+                                                            }
+                                                            else
+                                                            {
+                                                        @("font-size: 12px; padding: 0px 5px;display: none;text-align: left");
+                                                            }">
+                                                    <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                                {@("display: block;float: left;padding: 0px 11px;")}
+                                                                else
+                                                                {@("display: none;") }">
+
+
+                                                        <button type="button" class="btnnotes btnnotes-approved" id="BtnApproved" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 1, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Approve</button>
+
+                                                        <div style="display: block; float: left; padding: 0px 11px;">
+                                                            <button type="button" class="btn btn-danger" id="BtnReject" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 0, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Reject</button>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div style="@if (@Model.SharedOwnerUser == "125970002" || @Model.SharedOwnerUser == "125970001")
+                                                            { @("font-size: 12px; padding: 0px 5px;display: block;text-align: right");
+                                                            }
+                                                            else
+                                                            {
+                                                        @("font-size: 12px; padding: 0px 5px;display: none;text-align: right");
+                                                            }">
+                                                    <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                                {@("display: block;")}
+                                                                else
+                                                                {@("display:none;") }">
+                                                        @{
+                                                                var ProcessFunctionCall = "ProcessDocument('" + @Model.lstNotesData[i].annotationid + "');";
+                                                        }
+                                                        <button type="button" class="btn btn-primary"  id="BtnProcesss" onclick="@ProcessFunctionCall">Process1</button>
+                                                        <button type="button" class="btnnotes btnnotes-Process" id="BtnProcess" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 2, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Process</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div class="col-sm-12">
+                                                <div class="col-sm-6" style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                                             {@("display: none;")}
+                                                                             else
+                                                                             {@("display:block;float: left;padding: 0px 11px; ") }">
+
+                                                    @if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                    {
+                                                        <div style="text-align: center; padding: 5px 5px; background-color: #7ee27e; font-weight: 200;">
+
+                                                            @Html.Raw("Approved by " + @Model.lstNotesData[i].ApprovedByName)
+                                                        </div>
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
+                                                    {
+                                                        <div style="text-align: center; padding: 5px 5px; background-color: #db6b6b; font-weight: 200;">
+                                                            @Html.Raw("Rejected by " + @Model.lstNotesData[i].ApprovedByName)
+                                                        </div>
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
+                                                    {
+                                                        <div style="text-align: center; padding: 5px 5px; background-color: #7ee27e; font-weight: 200;">
+
+                                                            @Html.Raw("Approved by " + @Model.lstNotesData[i].ApprovedByName)
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                                <div class="col-sm-6" style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
+                                                                             {@("display: block;text-align: right;float: left;padding: 0px 11px;")}
+                                                                             else
+                                                                             {@("display:none;") }">
+
+                                                    <div style="text-align: center; padding: 5px 5px; background-color: #00ffff; font-weight: 200;">
+
+                                                        @Html.Raw("Processed by " + @Model.lstNotesData[i].ProcessedByName)
                                                     </div>
                                                 </div>
 
-
                                             </div>
-                                            <div style="@if (@Model.SharedOwnerUser == "125970002" || @Model.SharedOwnerUser == "125970001")
-                                                        { @("font-size: 12px; padding: 0px 5px;display: block;text-align: right");
-                                                        }
-                                                        else
-                                                        {
-                                                        @("font-size: 12px; padding: 0px 5px;display: none;text-align: right");
-                                                        }">
-                                                <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
-                                                            {@("display: block;")}
-                                                            else
-                                                            {@("display:none;") }">
-                                                    <button type="button" class="btnnotes btnnotes-Process" id="BtnProcess" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 2, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Process</button>
+                                            @* @Model.lstNotesData[i].createdon.ToString("dd-MMM-yyyy hh:mm:ss tt")*@
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div class="col-sm-12">
+                                                <div class="col-sm-6" style="font-size: 11px; padding: 0px 5px; text-align: justify">
+                                                    <b>Download File :</b>
+                                                    <a href="~/Document/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>
                                                 </div>
+                                                <div class="col-sm-6" style="font-size: 11px; padding: 0px 5px; text-align: right">
+                                                    <b>Created On :</b>
 
+                                                    @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div style="clear: both; height: 5px"></div>
-                                        <div class="col-sm-12">
-                                            <div class="col-sm-6" style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
-                                                                         {@("display: none;")}
-                                                                         else
-                                                                         {@("display:block;float: left;padding: 0px 11px; ") }">
+                                        </td>
+
+                                        <td  style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                    {
+                                                        //Approved
+                                                        @("text-align: justify;background-color:#7ee27e;width:10px;")
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
+                                                    {
+                                                        //Reject
+                                                         @("text-align: justify;background-color:#db6b6b;width:10px;")
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                    {
+                                                        //Pending
+                                                         @("text-align: justify;background-color:#8ba8c1;width:10px;")
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
+                                                    {
+                                                        //Processed
+                                                         @("text-align: justify;background-color:#00ffff;width:10px;")
+                                                    }"></td>
+
+                                    </tr>
+                
+                                    }
+
+                                    //}
+                                }
+                            </table>
+                        }
+                        else
+                        {
+                            <table class="table table-bordered table-hover table-striped text-center">
+                                <tr>
+                                    <th class="text-center">Sr.No</th>
+                                    <th class="text-center">Notes Description</th>
+                                    <th class="text-center">File</th>
+                                    <th class="text-center">Created by</th>
+                                    <th class="text-center">Created On</th>
+                                    <th class="text-center">Approved/Reject & Process by</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                                @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
+                                {
+                                    //foreach (var itemValue in Model.lstNotesData)
+                                    //{
+
+                                    for (var i = 0; i < Model.lstNotesData.Count; i++)
+                                    { 
+                                    
+                                    
+                                    <tr>
+                                        <td>
+                                            @{var j = i + 1;}
+                                            @j
+                                        </td>
+                                        <td>
+                                            @Model.lstNotesData[i].notesdescription
+                                        </td>
+                                        <td>
+                                            @*File*@
+                                            <a href="~/Document/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>
+                                        </td>
+                                        <td>
+                                            @* Created by*@
+                                            @Html.Raw(@Model.lstNotesData[i].PortalUsercreatedby)
+                                        </td>
+                                        <td>
+                                            @*Created on*@
+                                            @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                        </td>
+                                        <td>
+                                            @*Approved Reject by*@
+                                            <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                        {@("display: none;")}
+                                                        else
+                                                        {@("display:block;") }">
 
                                                 @if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
                                                 {
@@ -572,61 +713,106 @@
                                                 }
 
                                             </div>
-                                            <div class="col-sm-6" style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
-                                                                         {@("display: block;text-align: right;float: left;padding: 0px 11px;")}
-                                                                         else
-                                                                         {@("display:none;") }">
+                                            <div  style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
+                                                         {@("display: block;")}
+                                                         else
+                                                         {@("display:none;") }">
 
                                                 <div style="text-align: center; padding: 5px 5px; background-color: #00ffff; font-weight: 200;">
 
                                                     @Html.Raw("Processed by " + @Model.lstNotesData[i].ProcessedByName)
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td>
+                                            @*Action*@
+                                            <div style="@if (@Model.SharedOwnerUser == "125970001" || @Model.lstNotesData[i].AllowApprove == true)
+                                                        { @("display: block;");
+                                                        }
+                                                        else
+                                                        {
+                                                        @("display: none;");
+                                                        }">
+                                                <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                            {@("display: block;")}
+                                                            else
+                                                            {@("display: none;") }">
 
-                                        </div>
-                                        @* @Model.lstNotesData[i].createdon.ToString("dd-MMM-yyyy hh:mm:ss tt")*@
-                                        <div style="clear: both; height: 5px"></div>
-                                        <div class="col-sm-12">
-                                            <div class="col-sm-6" style="font-size: 11px; padding: 0px 5px; text-align: justify">
-                                                <b>Download File :</b>
-                                                <a href="~/Document/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>
+
+                                                    <button type="button" class="btnnotes btnnotes-approved" id="BtnApprovedUser" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 1, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Approve</button>
+
+                                                    <div style="display: block; float: left; padding: 0px 11px;">
+                                                        <button type="button" class="btn btn-danger" id="BtnRejectUser" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 0, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Reject</button>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
-                                            <div class="col-sm-6" style="font-size: 11px; padding: 0px 5px; text-align: right">
-                                                <b>Created On :</b>
+                                            <div style="@if (@Model.lstNotesData[i].PortalUsercreatedby.Contains(@Session["Uname"].ToString()) || @Model.SharedOwnerUser == "125970001")
+                                                        { 
+                                                            @("display: block;");
+                                                        }
+                                                        else
+                                                        {
+                                                            @("display: none;");
+                                                        }" >
 
-                                                @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                                @{
+                                                        var SharedFunctionCall = "SharedDocument('" + @Model.lstNotesData[i].annotationid + "');";
+                                                }
+                                                <button type="button" class="btn btn-primary"  id="btnSharedUser" onclick="@SharedFunctionCall">Share To User</button>
+
                                             </div>
-                                        </div>
-                                    </td>
+                                            <div style="@if (@Model.SharedOwnerUser == "125970002" || @Model.SharedOwnerUser == "125970001")
+                                                        { @("display: block;");
+                                                        }
+                                                        else
+                                                        {
+                                                        @("display: none;");
+                                                        }">
+                                                <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                            {@("display: block;")}
+                                                            else
+                                                            {@("display:none;") }">
+                                                    @{
+                                                            var ProcessFunctionCall = "ProcessDocument('" + @Model.lstNotesData[i].annotationid + "');";
+                                                    }
+                                                    <button type="button" class="btn btn-primary"  id="BtnProcesssUser" onclick="@ProcessFunctionCall">Process1</button>
+                                                    @*<button type="button" class="btnnotes btnnotes-Process" id="BtnProcess" onclick="location.href='@Url.Action("DocumentApproved", "Document", new { id = @Model.lstNotesData[i].annotationid, Flag = 2, SearchKeyword = @Model.SearchKeyword, Documenttyp = @Model.Documenttyp, PortalUser = @Model.PortalUser, ApprovalStatus = @Model.ApprovalStatus, Start_Date = @Model.Start_Date, End_Date = @Model.End_Date })'">Process</button>*@
+                                                </div>
 
-                                    <td  style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
-                                                {
-                                                    //Approved
+                                            </div>
+                                        </td>
+
+                                        <td  style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                    {
+                                                        //Approved
                                                         @("text-align: justify;background-color:#7ee27e;width:10px;")
-                                                }
-                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
-                                                {
-                                                    //Reject
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
+                                                    {
+                                                        //Reject
                                                          @("text-align: justify;background-color:#db6b6b;width:10px;")
-                                                }
-                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
-                                                {
-                                                    //Pending
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                    {
+                                                        //Pending
                                                          @("text-align: justify;background-color:#8ba8c1;width:10px;")
-                                                }
-                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
-                                                {
-                                                    //Processed
+                                                    }
+                                                    else if (@Model.lstNotesData[i].ApprovalStatus == "125970003")
+                                                    {
+                                                        //Processed
                                                          @("text-align: justify;background-color:#00ffff;width:10px;")
-                                                }"></td>
+                                                    }"></td>
 
-                                </tr>
+                                    </tr>
                 
-                                }
+                                    }
 
-                                //}
-                            }
-                        </table>
+                                    //}
+                                }
+                            </table>              
+                        }
                     </div>
                 </div>
             </div>
@@ -638,6 +824,12 @@
 
     function SharedDocument(Context) {
         window.open('/Document/DocumentShared/?Id=' + Context.id, '_blank');
+        // window.location.href = '/Document/DocumentShared/?Id=' + Context.id;
+    }
+
+    function ProcessDocument(Id) {
+
+        window.open('/Document/DocumentProccessed/?Id=' + Id, '_blank');
         // window.location.href = '/Document/DocumentShared/?Id=' + Context.id;
     }
 

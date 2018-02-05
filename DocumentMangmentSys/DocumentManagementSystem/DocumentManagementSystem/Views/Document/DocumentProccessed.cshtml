@@ -1,0 +1,134 @@
+﻿@model ClassLibrary1.NotesData
+@{
+    ViewBag.Title = "DocumentProccessed";
+    Layout = "~/Views/Shared/_CustomerMaster.cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocumentProcessed</title>
+
+</head>
+<body>
+    <h2 style="text-align: center; background-color: burlywood;">Document Notes</h2>
+    <div style="clear: both; height: 20px"></div>
+    @using (Html.BeginForm("SaveProccessed", "Document", FormMethod.Post))
+    {
+        <form>
+            @Html.HiddenFor(m => m.annotationid)
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="container" style="border: 2px solid #cecece;">
+                        <div style="clear: both; height: 20px"></div>
+                        <div class="col-sm-12 text-center">
+                            <div class="col-sm-8">
+                                <div class="col-sm-4">
+                                    <label for="email">
+                                        Reference No. <b style="color: red">*</b> :</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(m => m.processreferenceno, new { @class = "form-control", @id = "Txtprocessreferenceno" })
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="clear: both; height: 10px"></div>
+                        <div class="col-sm-12 text-center">
+                            <div class="col-sm-8">
+                                <div class="col-sm-4">
+                                    <label for="email">
+                                        Descriptions (Optional) :</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextAreaFor(m => m.processeddescription, new { @class = "form-control", @id = "Txtprocesseddescription" })
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="clear: both; height: 10px"></div>
+                        <div class="col-sm-12 text-center">
+                            <div class="col-sm-8">
+                                <button type="submit" class="btn btn-info">Process</button>
+
+                                @Html.ActionLink("Back", "DocumentNotes", "Document", new { @class = "btn btn-info" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="clear: both; height: 20px"></div>
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped ">
+                                @if (Model.lstNotesData != null && Model.lstNotesData.Count > 0)
+                                {
+                                    //foreach (var itemValue in Model.lstNotesData)
+                                    //{
+
+                                    for (var i = 0; i < Model.lstNotesData.Count; i++)
+                                    { 
+                                    
+                                    <tr style="text-align: justify">
+                                        <td>
+                                            <div style="font-size: 20px; padding: 0px 5px; text-align: right;">@Html.Raw("Created By " + @Model.lstNotesData[i].PortalUsercreatedby)</div>
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div style="padding: 0px 15px">
+                                                @Model.lstNotesData[i].notetext.Replace("*Document*", "")
+                                            </div>
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div style="@if (@Model.lstNotesData[i].ApprovalStatus == "125970002")
+                                                        {@("display: none;")}
+                                                        else
+                                                        {@("display:block;float: left;padding: 0px 11px; ") }">
+
+                                                @if (@Model.lstNotesData[i].ApprovalStatus == "125970000")
+                                                {
+                                                    <div style="text-align: justify; padding: 5px 5px; background-color: #7ee27e; font-weight: 200;">
+
+                                                        @Html.Raw("Approved by " + @Model.lstNotesData[i].ApprovedByName)
+                                                    </div>
+                                                }
+                                                else if (@Model.lstNotesData[i].ApprovalStatus == "125970001")
+                                                {
+                                                    <div style="text-align: justify; padding: 5px 5px; background-color: #db6b6b; font-weight: 200;">
+                                                        @Html.Raw("Rejected by " + @Model.lstNotesData[i].ApprovedByName)
+                                                    </div>
+                                                }
+
+                                            </div>
+                                            <div style="clear: both; height: 5px"></div>
+                                            <div style="font-size: 10px; padding: 0px 5px;">
+                                                <b>Created On :</b>
+
+                                                @ViewBag.GetTimeZone(@Model.lstNotesData[i].createdon)
+                                            </div>
+                                            @* @Model.lstNotesData[i].createdon.ToString("dd-MMM-yyyy hh:mm:ss tt")*@
+                                            <div style="@if (@Model.lstNotesData[i].subject == null)
+                                                        { @("font-size: 9px; padding: 0px 5px;display: none;");
+                                                        }
+                                                        else
+                                                        {
+                                                        @("font-size: 9px; padding: 0px 5px;display: block;");
+                                                        }
+                                            ">
+                                            </div>
+                                            @*<a href="~/Document/Download?fileId=@Model.lstNotesData[i].annotationid" target="_blank">@Model.lstNotesData[i].filename</a>*@
+                                        </td>
+                                    </tr>
+                
+                                    }
+
+                                    //}
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+</body>
+</html>
+

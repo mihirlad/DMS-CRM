@@ -48,5 +48,9 @@ namespace ClassLibrary1
         public string DocumenttypSave { get; set; }
         public string ProcessedBy { get; set; }
         public string ProcessedByName { get; set; }
+        public string processreferenceno { get; set; }
+        public string processeddescription { get; set; }
+        public string notesdescription { get; set; }
+        public string Rejectdescription { get; set; }
     }
 }
